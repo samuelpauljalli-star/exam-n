@@ -45,7 +45,7 @@
 
         body {
             font-family: var(--font-sans);
-            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.4) 0%, rgba(9, 13, 22, 1) 40%), url('1-Monastery-of-the-Holy-Cross-Chicago.jpg');
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.4) 0%, rgba(9, 13, 22, 0.85) 100%), url('1-Monastery-of-the-Holy-Cross-Chicago.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1217,12 +1217,12 @@
             <form id="reg-form" onsubmit="event.preventDefault(); startExam();">
                 <div class="form-group">
                     <label for="user-surname" class="telugu">ఇంటి పేరు (Surname) *</label>
-                    <input type="text" id="user-surname" class="input-field telugu-input" placeholder="ఉదాహరణ: jalli "
-                        required autocomplete="off">
+                    <input type="text" id="user-surname" class="input-field telugu-input"
+                        placeholder="ఉదాహరణ: ఇంటి పేరు  " required autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="user-name" class="telugu">పేరు (First Name) *</label>
-                    <input type="text" id="user-name" class="input-field telugu-input" placeholder="ఉదాహరణ: samuel "
+                    <input type="text" id="user-name" class="input-field telugu-input" placeholder="ఉదాహరణ: మీ పేరు "
                         required autocomplete="off">
                 </div>
 
@@ -1231,8 +1231,8 @@
                     <ul class="rules-list telugu">
                         <li><i class="fa-solid fa-chevron-right"></i> మొత్తం ప్రశ్నల సంఖ్య: <strong>260</strong>
                             (బహుళైచ్ఛిక ప్రశ్నలు)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> కేటాయించబడిన సమయం: <strong>2 గంటల 30 నిమిషాలు
-                                (2h:30m)</strong></li>
+                        <li><i class="fa-solid fa-chevron-right"></i> కేటాయించబడిన సమయం: <strong>01:40 నిమిషాలు</strong>
+                        </li>
                         <li><i class="fa-solid fa-chevron-right"></i> ప్రతి పేజీలో 50 ప్రశ్నలు ప్రదర్శించబడతాయి.</li>
                         <li><i class="fa-solid fa-chevron-right"></i> మీరు ఏదైనా ప్రశ్నకు జవాబును తర్వాత తనిఖీ
                             చేయాలనుకుంటే "మార్క్" చేసుకోవచ్చు.</li>
@@ -1383,7 +1383,7 @@
                     <div class="palette-card">
                         <h3 class="telugu">
                             ప్రశ్నల పట్టిక
-                            <span id="palette-progress" class="palette-stats">పూర్తయింది: 0/260</span>
+                            <span id="palette-progress" class="palette-stats">పూర్తయింది: 0/100</span>
                         </h3>
                         <div id="palette-grid" class="palette-grid">
                             <!-- Buttons 1 to 100 generated here -->
@@ -1418,7 +1418,7 @@
                 <div id="score-circle-container" class="score-circle">
                     <div class="score-value">
                         <div id="result-score-num" class="score-num">0</div>
-                        <div id="result-score-total" class="score-label">260 కి</div>
+                        <div id="result-score-total" class="score-label">100 కి</div>
                     </div>
                 </div>
 
@@ -1487,9 +1487,9 @@
                 పరీక్షను విజయవంతంగా పూర్తిచేసినట్లు ధృవీకరించడమైనది:</p>
             <div id="cert-name" class="cert-recipient">అకుల ప్రిస్కిల్ల</div>
             <div class="cert-body">
-                వీరు 260 ఆబ్జెక్టివ్ తరహా ప్రశ్నలతో కూడిన <strong>"బైబిల్ జ్ఞాన పరీక్ష"</strong> ను <span
+                వీరు 100 ఆబ్జెక్టివ్ తరహా ప్రశ్నలతో కూడిన <strong>"బైబిల్ జ్ఞాన పరీక్ష"</strong> ను <span
                     id="cert-date">-</span> వ తేదీన పూర్తిచేసి,<br>
-                <strong>260</strong> మార్కులకు గాను <strong><span id="cert-score">-</span></strong> మార్కులు సాధించి
+                <strong>100</strong> మార్కులకు గాను <strong><span id="cert-score">-</span></strong> మార్కులు సాధించి
                 ఉత్తీర్ణత పొందారు.<br>
                 వీరి విజయశాతం: <strong><span id="cert-percent">-</span>%</strong>
             </div>
@@ -1519,7 +1519,7 @@
                 సమర్పించిన తర్వాత జవాబులను మార్చలేరు.<br><br>
                 <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 8px;">
                     <i class="fa-solid fa-check text-success"></i> రాసిన ప్రశ్నలు: <strong id="modal-answered-count"
-                        style="color: var(--success);">0</strong> / 260<br>
+                        style="color: var(--success);">0</strong> / 100<br>
                     <i class="fa-solid fa-bookmark text-primary"></i> రివ్యూ కోసం మార్క్ చేసినవి: <strong
                         id="modal-bookmark-count" style="color: var(--primary);">0</strong>
                 </div>
@@ -2645,6 +2645,39 @@
                     "సింహముల గుహలో",
                     "అగాధములో"
                 ]
+            },
+            {
+                "id": 101,
+                "question": "దావీదుకు కుమారులు ఎక్కడ పుట్టిరి? ______ .",
+                "answer": "హెబ్రోనులో",
+                "options": [
+                    "బెత్లెహేములో",
+                    "హెబ్రోనులో",
+                    "యెరూషలేములో",
+                    "గిబియాలో"
+                ]
+            },
+            {
+                "id": 102,
+                "question": "దావీదు యొక్క జ్యేష్ఠపుత్రుడు (పెద్దకుమారుడు) ఎవరు? ______ .",
+                "answer": "అమ్నోను",
+                "options": [
+                    "సొలొమోను",
+                    "అబ్షాలోము",
+                    "అమ్నోను",
+                    "అదోనీయా"
+                ]
+            },
+            {
+                "id": 103,
+                "question": "అమ్నోను తల్లి పేరు ______ .",
+                "answer": "అహీనోయము",
+                "options": [
+                    "అబీగయీలు",
+                    "అహీనోయము",
+                    "బత్షెబా",
+                    "మయకా"
+                ]
             }
         ];
 
@@ -3010,7 +3043,7 @@
         function startTimer() {
             if (examState.timerInterval) clearInterval(examState.timerInterval);
 
-            const totalTime = examState.totalTime || 150 * 60;
+            const totalTime = examState.totalTime || 30 * 60;
             updateTimerUI(totalTime);
 
             examState.timerInterval = setInterval(() => {
@@ -3437,7 +3470,7 @@
                     const scoreTd = document.createElement("td");
                     scoreTd.style.padding = "0.4rem";
                     scoreTd.style.textAlign = "center";
-                    scoreTd.innerText = `${log.score} / ${log.total || 260}`;
+                    scoreTd.innerText = `${log.score} / ${log.total || 100}`;
 
                     const timeTakenTd = document.createElement("td");
                     timeTakenTd.style.padding = "0.4rem";
