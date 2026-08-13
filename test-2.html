@@ -2948,20 +2948,20 @@
             document.getElementById("header-user").style.display = "none";
 
             // ----------------------------------------
-            // EMAIL NOTIFICATION ENGINE (FORMSUBMIT)
+            // EMAIL NOTIFICATION ENGINE (WEB3FORMS)
             // ----------------------------------------
             const firebaseBadge = document.getElementById("res-firebase-status");
             firebaseBadge.innerText = "ఈమెయిల్ పంపుతోంది...";
             firebaseBadge.className = "detail-value text-accent";
 
-            fetch("https://formsubmit.co/ajax/samuelpauljalli@gmail.com", {
+            fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    _captcha: "false",
+                    access_key: "fc8c71c7-6524-4d40-b186-828acf4d4aae",
                     subject: "New Exam Submission from " + payload.fullName,
                     from_name: "Exam Portal",
                     Name: payload.fullName,
@@ -2981,7 +2981,7 @@
                         console.log(response);
                         firebaseBadge.innerText = "ఈమెయిల్ విఫలమైంది";
                         firebaseBadge.style.color = "var(--danger)";
-                        showToast("దయచేసి సరైన ఈమెయిల్ అడ్రస్ ని పెట్టండి.", "error");
+                        showToast("దయచేసి సరైన Web3Forms Access Key ని పెట్టండి.", "error");
                     }
                 })
                 .catch(error => {
