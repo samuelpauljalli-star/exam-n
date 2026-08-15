@@ -1,0 +1,4032 @@
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్ ఆన్‌లైన్ పరీక్ష (Bible Quiz Online Exam)</title>
+
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ramabhadra&family=NTR&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    <style>
+        /* Premium CSS Design System */
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.4);
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f97316;
+            --bg-dark: #090d16;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.08);
+            --font-telugu: 'Ramabhadra', 'NTR', sans-serif;
+            --font-sans: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.4) 0%, rgba(9, 13, 22, 0.85) 100%), url('1-Monastery-of-the-Holy-Cross-Chicago.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Beautiful Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .telugu {
+            font-family: var(--font-telugu);
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .logo-title h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-title p {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1280px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Glass Card Style */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            padding: 2.5rem;
+        }
+
+        /* Screen State Animations */
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Welcome / Register Screen */
+        .welcome-card {
+            max-width: 600px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .welcome-icon {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px var(--accent-glow));
+            }
+
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 15px var(--accent-glow));
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .input-field {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: var(--font-sans);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
+        }
+
+        .input-field.telugu-input {
+            font-family: var(--font-telugu);
+            font-size: 1.2rem;
+        }
+
+        .rules-box {
+            background: rgba(0, 0, 0, 0.25);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .rules-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        .rules-list {
+            list-style-type: none;
+        }
+
+        .rules-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .rules-list li i {
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), #6366f1);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-sans);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent), #f59e0b);
+            color: #0b0f19;
+        }
+
+        .btn-accent:hover {
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #f87171);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Active Exam Screen Layout */
+        .exam-grid {
+            display: grid;
+            grid-template-columns: 8fr 4fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Question Panel styling */
+        .question-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .question-card {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .question-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .question-card.highlighted {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+        }
+
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            gap: 1rem;
+        }
+
+        .q-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .q-number {
+            font-size: 0.95rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .bookmark-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+            padding: 0.2rem;
+        }
+
+        .bookmark-btn:hover {
+            color: var(--accent);
+        }
+
+        .bookmark-btn.active {
+            color: var(--accent);
+        }
+
+        /* Option Cards styling */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .option-label:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hide standard radio but style it */
+        .option-label input[type="radio"] {
+            display: none;
+        }
+
+        .option-bullet {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+            color: transparent;
+        }
+
+        .option-label:hover .option-bullet {
+            border-color: var(--accent);
+        }
+
+        .option-label.selected {
+            background: rgba(79, 70, 229, 0.15);
+            border-color: var(--primary);
+        }
+
+        .option-label.selected .option-bullet {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .option-text {
+            flex: 1;
+        }
+
+        /* Sidebar / Palette panel styling */
+        .sidebar-panel {
+            position: sticky;
+            top: 6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Timer section */
+        .timer-card {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .timer-header {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timer-display {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: monospace;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .timer-display.warning {
+            color: var(--warning);
+            animation: pulse-border 1.5s infinite;
+        }
+
+        .timer-display.danger {
+            color: var(--danger);
+            animation: flash-red 0.8s infinite;
+            text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+        }
+
+        @keyframes flash-red {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .progress-bar-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            height: 6px;
+            width: 100%;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 100%;
+            transition: width 1s linear, background-color 0.5s ease;
+        }
+
+        /* Question Palette Grid */
+        .palette-card {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .palette-card h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .palette-stats {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .palette-btn {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .palette-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        .palette-btn.unvisited {
+            border-color: var(--border);
+        }
+
+        .palette-btn.visited {
+            border-color: var(--danger);
+            background: rgba(239, 68, 68, 0.08);
+            color: var(--danger);
+        }
+
+        .palette-btn.answered {
+            background: var(--success);
+            border-color: var(--success);
+            color: #0b0f19;
+        }
+
+        .palette-btn.bookmarked {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .palette-btn.current {
+            box-shadow: 0 0 0 2px var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Color Guide Legend */
+        .palette-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 12px;
+            margin-top: 1.25rem;
+            font-size: 0.75rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+
+        .legend-color.unvisited {
+            background: transparent;
+        }
+
+        .legend-color.visited {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: var(--danger);
+        }
+
+        .legend-color.answered {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .legend-color.bookmarked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Navigation Actions at bottom */
+        .nav-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(17, 24, 39, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            gap: 1rem;
+        }
+
+        /* Modal dialog */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: #111827;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .modal-backdrop.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .modal-body {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        /* Results Dashboard styling */
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .results-hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: radial-gradient(circle at center, rgba(79, 70, 229, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 16px;
+        }
+
+        .score-circle {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(var(--success) calc(var(--percentage) * 1%), rgba(255, 255, 255, 0.05) 0);
+            margin: 0.5rem auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Inner circle mask */
+        .score-circle::after {
+            content: '';
+            position: absolute;
+            width: 156px;
+            height: 156px;
+            background: #0e121e;
+            border-radius: 50%;
+        }
+
+        .score-value {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .score-num {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .score-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .results-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 2.5rem 0;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .detail-card i {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Review Area */
+        .review-section {
+            margin-top: 3rem;
+        }
+
+        .review-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .review-filter {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.4rem 0.85rem;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .review-card.correct-item {
+            border-left: 4px solid var(--success);
+        }
+
+        .review-card.incorrect-item {
+            border-left: 4px solid var(--danger);
+        }
+
+        .review-q-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .review-q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        .review-status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .review-status-badge.correct {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .review-status-badge.incorrect {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+
+        .answer-comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+            border-top: 1px dotted rgba(255, 255, 255, 0.05);
+            padding-top: 0.6rem;
+        }
+
+        .ans-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ans-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .ans-text {
+            font-weight: 600;
+        }
+
+        .ans-text.success {
+            color: var(--success);
+        }
+
+        .ans-text.danger {
+            color: var(--danger);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1f2937;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 2000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            font-size: 1.25rem;
+        }
+
+        .toast.success i {
+            color: var(--success);
+        }
+
+        .toast.error i {
+            color: var(--danger);
+        }
+
+        .toast.info i {
+            color: var(--accent);
+        }
+
+        /* Print styling specifically for certificate creation */
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+
+            header,
+            .nav-actions,
+            .timer-card,
+            .sidebar-panel,
+            .review-section,
+            .btn,
+            .results-hero h1,
+            .results-hero p,
+            .score-circle::after {
+                display: none !important;
+            }
+
+            main {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .glass-card {
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+                backdrop-filter: none !important;
+                padding: 0 !important;
+            }
+
+            .screen.active {
+                display: block !important;
+            }
+
+            .print-certificate-container {
+                display: block !important;
+                border: 10px double #d97706;
+                padding: 3rem;
+                text-align: center;
+                max-width: 700px;
+                margin: 4rem auto;
+                position: relative;
+                background: #fff !important;
+                color: #000 !important;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .cert-title {
+                font-family: var(--font-sans);
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #854d0e;
+                margin-bottom: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .cert-subtitle {
+                font-size: 1.1rem;
+                color: #4b5563;
+                margin-bottom: 2.5rem;
+            }
+
+            .cert-recipient {
+                font-family: var(--font-telugu);
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: #1e1b4b;
+                border-bottom: 2px solid #854d0e;
+                display: inline-block;
+                padding: 0.25rem 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cert-body {
+                font-family: var(--font-telugu);
+                font-size: 1.3rem;
+                line-height: 1.8;
+                color: #374151;
+                margin-bottom: 3rem;
+            }
+
+            .cert-footer {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 4rem;
+                border-top: 1px solid #e5e7eb;
+                padding-top: 1.5rem;
+            }
+
+            .cert-sign {
+                text-align: center;
+                font-size: 0.9rem;
+                color: #6b7280;
+            }
+
+            .cert-sign h4 {
+                color: #1f2937;
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        /* Print certificate container - hidden in screen rendering */
+        .print-certificate-container {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .exam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-panel {
+                position: static;
+            }
+
+            .palette-grid {
+                grid-template-columns: repeat(10, 1fr);
+                max-height: 180px;
+            }
+
+            header {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .question-card {
+                padding: 0.85rem 1rem !important;
+                margin-bottom: 0.85rem !important;
+                border-radius: 6px !important;
+            }
+
+            main {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .welcome-card {
+                margin: 1rem auto;
+            }
+
+            .q-text {
+                font-size: 1.1rem;
+            }
+
+            .option-label {
+                font-size: 1rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .timer-display {
+                font-size: 1.8rem;
+            }
+
+            .palette-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .question-card {
+                padding: 0.75rem 0.85rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+
+            .nav-actions button,
+            .nav-actions span {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <i class="fa-solid fa-bible logo-icon"></i>
+            <div class="logo-title">
+                <h1 class="telugu">బైబిల్ జ్ఞాన పరీక్ష</h1>
+                <p>Online Scripture Test</p>
+            </div>
+        </div>
+        <div id="header-user" style="display: none;">
+            <span class="legend-color answered"
+                style="display: inline-block; width: 8px; height: 8px; border-radius: 50%;"></span>
+            <span id="user-badge-name" style="font-weight: 600; font-size: 0.9rem;"></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. WELCOME / REGISTRATION SCREEN -->
+        <section id="welcome-screen" class="screen glass-card welcome-card active">
+            <i class="fa-solid fa-scroll welcome-icon"></i>
+            <h2 class="telugu" style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">పరిశుద్ధ గ్రంథ పరీక్షకు
+                స్వాగతం</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">కింది వివరాలను నింపి పరీక్షను ప్రారంభించండి.</p>
+
+            <form id="reg-form" onsubmit="event.preventDefault(); startExam();">
+                <div class="form-group">
+                    <label for="user-surname" class="telugu">ఇంటి పేరు (Surname) *</label>
+                    <input type="text" id="user-surname" class="input-field telugu-input"
+                        placeholder="ఉదాహరణ: ఇంటి పేరు  " required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="user-name" class="telugu">పేరు (First Name) *</label>
+                    <input type="text" id="user-name" class="input-field telugu-input" placeholder="ఉదాహరణ: మీ పేరు "
+                        required autocomplete="off">
+                </div>
+
+                <div class="rules-box">
+                    <h3 class="telugu"><i class="fa-solid fa-circle-info"></i> పరీక్షా నియమ నిబంధనలు:</h3>
+                    <ul class="rules-list telugu">
+                        <li><i class="fa-solid fa-chevron-right"></i> మొత్తం ప్రశ్నల సంఖ్య: <strong>150</strong>
+                            (బహుళైచ్ఛిక ప్రశ్నలు)</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> కేటాయించబడిన సమయం: <strong>01:00 నిమిషాలు</strong>
+                        </li>
+                        <li><i class="fa-solid fa-chevron-right"></i> ప్రతి పేజీలో 50 ప్రశ్నలు ప్రదర్శించబడతాయి.</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> మీరు ఏదైనా ప్రశ్నకు జవాబును తర్వాత తనిఖీ
+                            చేయాలనుకుంటే "మార్క్" చేసుకోవచ్చు.</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> సమయం ముగిసేసరికి పరీక్ష ఆటోమేటిక్‌గా సబ్మిట్
+                            అవుతుంది.</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> పరీక్ష పూర్తయిన తర్వాత మీ పూర్తి మార్కులు మరియు
+                            వివరాల రిపోర్ట్ చూపబడుతుంది.</li>
+                    </ul>
+                </div>
+                <!-- Host Settings Section -->
+                <div class="rules-box"
+                    style="border-left-color: var(--primary); background: rgba(79, 70, 229, 0.05); padding: 1rem 1.25rem; margin: 1.5rem 0;">
+                    <h3 class="telugu"
+                        style="color: var(--primary); display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1.1rem; margin-bottom: 0;"
+                        onclick="toggleHostSettings()">
+                        <span><i class="fa-solid fa-user-gear"></i> నిర్వాహకుని అమరికలు (Host Settings)</span>
+                        <span id="host-settings-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </h3>
+                    <div id="host-settings-content"
+                        style="display: none; margin-top: 1rem; border-top: 1px dotted rgba(255,255,255,0.1); padding-top: 1rem; text-align: left;">
+                        <div class="form-group" id="host-password-group" style="margin-bottom: 0;">
+                            <label class="telugu"
+                                style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; display: block;">నిర్వాహకుని
+                                పాస్‌వర్డ్ (Enter Password to Change Time):</label>
+                            <input type="password" id="host-password" class="input-field"
+                                placeholder="పాస్‌వర్డ్ నమోదు చేయండి" style="padding: 0.5rem;"
+                                oninput="checkHostPassword()">
+                        </div>
+                        <div class="form-group" id="host-time-inputs" style="margin-bottom: 0; display: none;">
+                            <label class="telugu"
+                                style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; display: block;">పరీక్ష
+                                సమయం నిర్ణయించండి (Set Exam Duration):</label>
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <input type="number" id="host-hours" class="input-field" value="1" min="0" max="10"
+                                        style="width: 70px; padding: 0.5rem; text-align: center;">
+                                    <span style="color: var(--text-main); font-size: 0.9rem;">గంటలు (Hrs)</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <input type="number" id="host-minutes" class="input-field" value="0" min="0"
+                                        max="59" style="width: 70px; padding: 0.5rem; text-align: center;">
+                                    <span style="color: var(--text-main); font-size: 0.9rem;">నిమిషాలు (Mins)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Host Question Manager -->
+                        <div id="host-question-manager"
+                            style="margin-top: 1.5rem; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 1rem;">
+                            <h4 class="telugu"
+                                style="color: var(--accent); font-size: 1rem; margin-bottom: 0.75rem; display: flex; gap: 8px; align-items: center;">
+                                <i class="fa-solid fa-pen-to-square"></i> ప్రశ్నల నిర్వాహకుడు (Manage Questions)
+                            </h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                                ప్రశ్నల డేటాను సవరించవచ్చు లేదా క్రొత్తవి జోడించవచ్చు:
+                            </p>
+                            <textarea id="host-questions-json" class="input-field"
+                                style="width:100%; height: 120px; font-family: monospace; font-size: 0.8rem;"
+                                placeholder="[ { &quot;id&quot;: 1, &quot;question&quot;: &quot;...&quot;, &quot;answer&quot;: &quot;...&quot;, &quot;options&quot;: [...] } ]"></textarea>
+                            <button type="button" class="btn btn-accent" onclick="saveHostQuestions()"
+                                style="margin-top: 8px; padding: 0.4rem 1rem; font-size: 0.85rem;">
+                                ప్రశ్నలను భద్రపరచండి (Save Questions)
+                            </button>
+                        </div>
+                        <!-- Host Results Log -->
+                        <div id="host-results-log"
+                            style="margin-top: 1.5rem; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 1rem;">
+                            <h4 class="telugu"
+                                style="color: var(--accent); font-size: 1rem; margin-bottom: 0.75rem; display: flex; gap: 8px; align-items: center;">
+                                <i class="fa-solid fa-list-check"></i> సమర్పించిన పరీక్షల వివరాలు (Submitted Exam Logs)
+                            </h4>
+                            <div id="host-logs-table-wrapper"
+                                style="max-height: 250px; overflow-y: auto; background: rgba(0,0,0,0.25); border-radius: 8px; padding: 0.5rem; border: 1px solid rgba(255,255,255,0.05);">
+                                <table
+                                    style="width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text-main); text-align: left;">
+                                    <thead>
+                                        <tr
+                                            style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted);">
+                                            <th style="padding: 0.4rem;">పేరు (Name)</th>
+                                            <th style="padding: 0.4rem; text-align: center;">మార్కులు (Score)</th>
+                                            <th style="padding: 0.4rem; text-align: center;">సమయం (Time)</th>
+                                            <th style="padding: 0.4rem; text-align: right;">తేదీ (Date)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="host-logs-tbody">
+                                        <!-- Logs populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-secondary telugu" type="button" onclick="clearHostLogs()"
+                                style="margin-top: 0.75rem; font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: 4px;">
+                                <i class="fa-solid fa-trash-can"></i> చరిత్రను తొలగించు (Clear Logs)
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-accent btn-large telugu"
+                    style="width: 100%; font-size: 1.2rem; padding: 1rem;">
+                    <i class="fa-solid fa-play"></i> పరీక్షను ప్రారంభించండి (Start Exam)
+                </button>
+            </form>
+        </section>
+
+        <!-- 2. ACTIVE EXAM SCREEN -->
+        <section id="exam-screen" class="screen">
+            <div class="exam-grid">
+                <!-- Question list container (Left) -->
+                <div class="question-panel-wrapper">
+                    <div id="questions-container" class="question-panel telugu">
+                        <!-- Questions dynamically generated here -->
+                    </div>
+
+                    <div class="nav-actions">
+                        <button id="prev-btn" class="btn btn-secondary telugu" onclick="changePage(-1)">
+                            <i class="fa-solid fa-arrow-left"></i> వెనుకకు (Prev)
+                        </button>
+                        <span id="page-indicator" style="font-weight: 600; color: var(--text-muted);">పేజీ 1 / 6</span>
+                        <button id="next-btn" class="btn telugu" onclick="changePage(1)">
+                            తరువాతి (Next) <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button id="last-page-submit-btn" class="btn btn-accent telugu" style="display: none;"
+                            onclick="openSubmitModal()">
+                            <i class="fa-solid fa-circle-check"></i> సమర్పించండి (Submit Exam)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sidebar controls (Right) -->
+                <div class="sidebar-panel">
+                    <!-- Timer Card -->
+                    <div class="timer-card">
+                        <div class="timer-header telugu">మిగిలి ఉన్న సమయం (Time Remaining)</div>
+                        <div id="timer-display" class="timer-display">
+                            <i class="fa-regular fa-clock"></i>
+                            <span id="time-hours">02</span>:<span id="time-minutes">30</span>:<span
+                                id="time-seconds">00</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="timer-progress" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Question Palette Card -->
+                    <div class="palette-card">
+                        <h3 class="telugu">
+                            ప్రశ్నల పట్టిక
+                            <span id="palette-progress" class="palette-stats">పూర్తయింది: 0/100</span>
+                        </h3>
+                        <div id="palette-grid" class="palette-grid">
+                            <!-- Buttons 1 to 100 generated here -->
+                        </div>
+                        <div class="palette-legend telugu">
+                            <div class="legend-item">
+                                <div class="legend-color answered"></div>జవాబిచ్చినవి
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color bookmarked"></div>మార్క్ చేసినవి
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color visited"></div>జవాబు లేనివి
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color unvisited"></div>చూడనివి
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. RESULTS DASHBOARD -->
+        <section id="results-screen" class="screen glass-card">
+            <div class="results-hero">
+                <i class="fa-solid fa-award" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                <h2 class="telugu" style="font-size: 2rem; margin-bottom: 0.5rem; color: #fff;">పరీక్షా ఫలితాలు (Exam
+                    Results)</h2>
+                <p style="color: var(--text-muted);">మీరు పరీక్షను విజయవంతంగా పూర్తిచేశారు!</p>
+
+                <div id="score-circle-container" class="score-circle">
+                    <div class="score-value">
+                        <div id="result-score-num" class="score-num">0</div>
+                        <div id="result-score-total" class="score-label">100 కి</div>
+                    </div>
+                </div>
+
+                <h3 id="result-rating" class="telugu"
+                    style="font-size: 1.5rem; color: var(--accent); margin-top: 1rem;"></h3>
+            </div>
+
+            <div class="results-details telugu">
+                <div class="detail-card">
+                    <i class="fa-regular fa-user"></i>
+                    <div class="detail-label">అభ్యర్థి పేరు</div>
+                    <div id="res-full-name" class="detail-value">-</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-regular fa-calendar"></i>
+                    <div class="detail-label">తేదీ & సమయం</div>
+                    <div id="res-date-time" class="detail-value">-</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-regular fa-hourglass-half"></i>
+                    <div class="detail-label">తీసుకున్న సమయం</div>
+                    <div id="res-time-taken" class="detail-value">-</div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-regular fa-envelope"></i>
+                    <div class="detail-label">ఈమెయిల్ స్టేటస్</div>
+                    <div id="res-firebase-status" class="detail-value" style="font-size: 0.85rem;">పంపలేదు</div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 3rem;">
+                <button class="btn btn-accent telugu" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> రిజల్ట్ ప్రింట్ చేయండి (Print Certificate)
+                </button>
+                <button class="btn btn-secondary telugu" onclick="restartExam()">
+                    <i class="fa-solid fa-rotate-right"></i> తిరిగి రాయండి (Restart)
+                </button>
+            </div>
+
+            <!-- Detail question review list -->
+            <div class="review-section">
+                <h2 class="telugu">
+                    జవాబుల సమీక్ష (Answer Review)
+                    <div class="review-filter">
+                        <button id="filter-all" class="filter-btn active telugu"
+                            onclick="filterReview('all')">అన్నీ</button>
+                        <button id="filter-correct" class="filter-btn telugu"
+                            onclick="filterReview('correct')">సరైనవి</button>
+                        <button id="filter-incorrect" class="filter-btn telugu"
+                            onclick="filterReview('incorrect')">తప్పులు</button>
+                    </div>
+                </h2>
+                <div id="review-list" class="review-list telugu">
+                    <!-- Dynamic review cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PRINT CERTIFICATE CONTAINER -->
+        <div id="print-certificate" class="print-certificate-container">
+            <div class="cert-title" style="font-size: 3rem; margin-bottom: 0.5rem; text-transform: uppercase;">Shilohu
+                prayer hall</div>
+            <div class="cert-subtitle" style="font-size: 1.5rem; color: #854d0e; font-weight: bold;">పరీక్ష ధృవీకరణ
+                పత్రము (Certificate of Completion)</div>
+            <p style="font-size: 1.1rem; color: #4b5563; margin-bottom: 1.5rem;">ఈ క్రింది అభ్యర్థి బైబిల్ జ్ఞాన
+                పరీక్షను విజయవంతంగా పూర్తిచేసినట్లు ధృవీకరించడమైనది:</p>
+            <div id="cert-name" class="cert-recipient">అకుల ప్రిస్కిల్ల</div>
+            <div class="cert-body">
+                వీరు 100 ఆబ్జెక్టివ్ తరహా ప్రశ్నలతో కూడిన <strong>"బైబిల్ జ్ఞాన పరీక్ష"</strong> ను <span
+                    id="cert-date">-</span> వ తేదీన పూర్తిచేసి,<br>
+                <strong>100</strong> మార్కులకు గాను <strong><span id="cert-score">-</span></strong> మార్కులు సాధించి
+                ఉత్తీర్ణత పొందారు.<br>
+                వీరి విజయశాతం: <strong><span id="cert-percent">-</span>%</strong>
+            </div>
+            <div class="cert-footer">
+                <div class="cert-sign">
+                    <div style="width: 150px; border-bottom: 1px solid #9ca3af; margin: 0 auto 0.5rem; height: 30px;">
+                    </div>
+                    <h4>పరీక్షా నిర్వాహకుడు</h4>
+                    <span>Examiner Signature</span>
+                </div>
+                <div class="cert-sign">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;" id="cert-time-taken">-</div>
+                    <h4>వ్యవధి</h4>
+                    <span>Time Taken</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SUBMIT EXAM MODAL DIALOG -->
+    <div id="submit-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-question modal-icon"></i>
+            <h3 class="modal-title telugu">పరీక్షను సమర్పించాలా?</h3>
+            <div class="modal-body telugu">
+                మీరు పరీక్ష సమాధాన పత్రాన్ని సబ్మిట్ చేయడానికి సిద్ధంగా ఉన్నారా?<br>
+                సమర్పించిన తర్వాత జవాబులను మార్చలేరు.<br><br>
+                <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 8px;">
+                    <i class="fa-solid fa-check text-success"></i> రాసిన ప్రశ్నలు: <strong id="modal-answered-count"
+                        style="color: var(--success);">0</strong> / 100<br>
+                    <i class="fa-solid fa-bookmark text-primary"></i> రివ్యూ కోసం మార్క్ చేసినవి: <strong
+                        id="modal-bookmark-count" style="color: var(--primary);">0</strong>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary telugu" onclick="closeSubmitModal()">క్యాన్సిల్ (Cancel)</button>
+                <button class="btn btn-accent telugu" onclick="submitExam(false)">అవును, సబ్మిట్ చేయి (Submit)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast">
+        <i id="toast-icon" class="fa-solid"></i>
+        <span id="toast-text" class="telugu"></span>
+    </div>
+
+    <script>
+        // ==========================================
+        // FIREBASE CONFIGURATION REMOVED - USING FORMSUBMIT
+        // ==========================================
+
+        // ==========================================
+        // QUESTIONS DATA (100 QUESTIONS WITH ANSWERS)
+        // ==========================================
+        let questions = [
+            {
+                "id": 1,
+                "question": "అపొస్తలుల కార్యములు గ్రంథం ఎవరికి వ్రాయబడింది?",
+                "answer": "థెయోఫిలుకు",
+                "options": [
+                    "పేతురుకు",
+                    "తిమోతికి",
+                    "థెయోఫిలుకు",
+                    "పౌలుకు"
+                ]
+            },
+            {
+                "id": 2,
+                "question": "యేసు పునరుత్థానం తరువాత ఎన్ని రోజులు శిష్యులకు కనిపించాడు?",
+                "answer": "40 రోజులు",
+                "options": [
+                    "7 రోజులు",
+                    "20 రోజులు",
+                    "40 రోజులు",
+                    "50 రోజులు"
+                ]
+            },
+            {
+                "id": 3,
+                "question": "యేసు శిష్యులు యెరూషలేమును విడిచి వెళ్లకుండా ఏమి చేయమని ఆజ్ఞాపించాడు?",
+                "answer": "తండ్రి వాగ్దానము కొరకు వేచి ఉండమని",
+                "options": [
+                    "ఉపవాసం చేయమని",
+                    "తండ్రి వాగ్దానము కొరకు వేచి ఉండమని",
+                    "గలిలయకు వెళ్లమని",
+                    "సమరయకు వెళ్లమని"
+                ]
+            },
+            {
+                "id": 4,
+                "question": "పరిశుద్ధాత్మ వచ్చినప్పుడు శిష్యులు ఏమి పొందుతారని యేసు చెప్పాడు?",
+                "answer": "శక్తి",
+                "options": [
+                    "ధనం",
+                    "శక్తి",
+                    "రాజ్యం",
+                    "జ్ఞానం మాత్రమే"
+                ]
+            },
+            {
+                "id": 5,
+                "question": "శిష్యులు యేసుకు సాక్షులుగా ఎక్కడ ఉండాలి?",
+                "answer": "యెరూషలేము, యూదయ, సమరయ, భూదిగంతముల వరకు",
+                "options": [
+                    "యెరూషలేము, యూదయ, సమరయ, భూదిగంతముల వరకు",
+                    "గలిలయలో మాత్రమే",
+                    "రోములో మాత్రమే",
+                    "యెరూషలేములో మాత్రమే"
+                ]
+            },
+            {
+                "id": 6,
+                "question": "యేసు పరలోకానికి ఎక్కినప్పుడు ఆయనను ఏమి కప్పివేసింది?",
+                "answer": "మేఘము",
+                "options": [
+                    "అగ్ని",
+                    "మేఘము",
+                    "పొగ",
+                    "చీకటి"
+                ]
+            },
+            {
+                "id": 7,
+                "question": "యేసు పరలోకానికి ఎక్కిన తరువాత శిష్యులు ఎక్కడికి వెళ్లారు?",
+                "answer": "యెరూషలేము",
+                "options": [
+                    "బెత్లెహేము",
+                    "యెరూషలేము",
+                    "సమరయ",
+                    "దమస్కు"
+                ]
+            },
+            {
+                "id": 8,
+                "question": "యూదా స్థానంలో అపొస్తలుడిగా ఎవరిని ఎన్నుకున్నారు?",
+                "answer": "మత్తీయ",
+                "options": [
+                    "బర్నబా",
+                    "మత్తీయ",
+                    "సీల",
+                    "మార్కు"
+                ]
+            },
+            {
+                "id": 9,
+                "question": "మత్తీయను ఎన్నుకునే ముందు వారు ఏమి చేశారు?",
+                "answer": "చీట్లు వేశారు",
+                "options": [
+                    "ఉపవాసం మాత్రమే",
+                    "చీట్లు వేశారు",
+                    "యుద్ధం చేశారు",
+                    "ప్రజలను అడిగారు"
+                ]
+            },
+            {
+                "id": 10,
+                "question": "పెంతెకొస్తు దినమున శిష్యులు ఎక్కడ కూడి ఉన్నారు?",
+                "answer": "ఒక స్థలంలో",
+                "options": [
+                    "దేవాలయంలో",
+                    "ఒక స్థలంలో",
+                    "సముద్రతీరంలో",
+                    "సమాజ మందిరంలో"
+                ]
+            },
+            {
+                "id": 11,
+                "question": "పరిశుద్ధాత్మ వచ్చినప్పుడు ఏ శబ్దం వినిపించింది?",
+                "answer": "బలమైన గాలి వీచినట్లు శబ్దం",
+                "options": [
+                    "ఉరుము",
+                    "బలమైన గాలి వీచినట్లు శబ్దం",
+                    "గంటల శబ్దం",
+                    "సంగీతం"
+                ]
+            },
+            {
+                "id": 12,
+                "question": "పరిశుద్ధాత్మ వచ్చినప్పుడు ఏమి కనిపించాయి?",
+                "answer": "అగ్నివంటి నాలుకలు",
+                "options": [
+                    "నక్షత్రాలు",
+                    "అగ్నివంటి నాలుకలు",
+                    "మేఘాలు",
+                    "పావురాలు"
+                ]
+            },
+            {
+                "id": 13,
+                "question": "శిష్యులు పరిశుద్ధాత్మతో నిండినప్పుడు ఏమి మాట్లాడసాగారు?",
+                "answer": "ఇతర భాషలు",
+                "options": [
+                    "హెబ్రీ భాష మాత్రమే",
+                    "ఇతర భాషలు",
+                    "గ్రీకు మాత్రమే",
+                    "లాటిన్ మాత్రమే"
+                ]
+            },
+            {
+                "id": 14,
+                "question": "పెంతెకొస్తు దినమున యెరూషలేములో ఎక్కడెక్కడి నుండి ప్రజలు వచ్చారు?",
+                "answer": "అనేక దేశాల నుండి",
+                "options": [
+                    "ఒక్క గలిలయ నుండి",
+                    "అనేక దేశాల నుండి",
+                    "రోము నుండి మాత్రమే",
+                    "సమరయ నుండి మాత్రమే"
+                ]
+            },
+            {
+                "id": 15,
+                "question": "పేతురు తన ప్రసంగంలో ఏ ప్రవక్త ప్రవచనాన్ని ఉదహరించాడు?",
+                "answer": "యోవేలు",
+                "options": [
+                    "యెషయా",
+                    "యోవేలు",
+                    "యిర్మీయా",
+                    "దానియేలు"
+                ]
+            },
+            {
+                "id": 16,
+                "question": "పేతురు యేసును ఎవరు సిలువవేసారని చెప్పాడు?",
+                "answer": "యూదులు",
+                "options": [
+                    "రోమీయులు మాత్రమే",
+                    "యూదులు",
+                    "సమరయులు",
+                    "గ్రీకులు"
+                ]
+            },
+            {
+                "id": 17,
+                "question": "పేతురు ప్రసంగం విన్నవారు ఏమి అడిగారు?",
+                "answer": "“సహోదరులారా, మేమేమి చేయాలి?”",
+                "options": [
+                    "“మేము ఎక్కడికి వెళ్లాలి?”",
+                    "“సహోదరులారా, మేమేమి చేయాలి?”",
+                    "“యేసు ఎక్కడ ఉన్నాడు?”",
+                    "“ఎవరిని నమ్మాలి?”"
+                ]
+            },
+            {
+                "id": 18,
+                "question": "పేతురు పాపముల విషయమై ఏమి చేయమని చెప్పాడు?",
+                "answer": "మారుమనస్సు పొంది బాప్తిస్మం పొందమని",
+                "options": [
+                    "ధనం ఇవ్వమని",
+                    "మారుమనస్సు పొంది బాప్తిస్మం పొందమని",
+                    "యెరూషలేము విడిచి వెళ్లమని",
+                    "ఉపవాసం చేయమని"
+                ]
+            },
+            {
+                "id": 19,
+                "question": "ఆ దినమున సుమారు ఎంతమంది చేర్చబడ్డారు?",
+                "answer": "3,000",
+                "options": [
+                    "500",
+                    "1,000",
+                    "3,000",
+                    "5,000"
+                ]
+            },
+            {
+                "id": 20,
+                "question": "తొలి విశ్వాసులు అపొస్తలుల బోధలో ఎలా ఉండేవారు?",
+                "answer": "స్థిరంగా",
+                "options": [
+                    "నిర్లక్ష్యంగా",
+                    "స్థిరంగా",
+                    "భయంతో",
+                    "విడిపోయి"
+                ]
+            },
+            {
+                "id": 21,
+                "question": "తొలి సంఘస్థులు ఏ నాలుగు విషయాలలో స్థిరంగా ఉండేవారు?",
+                "answer": "అపొస్తలుల బోధ, సహవాసం, రొట్టె విరచుట, ప్రార్థనలు",
+                "options": [
+                    "ప్రార్థన, ఉపవాసం, యుద్ధం, ధనం",
+                    "అపొస్తలుల బోధ, సహవాసం, రొట్టె విరచుట, ప్రార్థనలు",
+                    "ధర్మశాస్త్రం, యుద్ధం, పండుగలు, బలి",
+                    "పని, ధనం, ఆహారం, నిద్ర"
+                ]
+            },
+            {
+                "id": 22,
+                "question": "పేతురు, యోహాను ప్రార్థనకు ఎక్కడికి వెళ్తున్నారు?",
+                "answer": "దేవాలయానికి",
+                "options": [
+                    "ఇంటికి",
+                    "దేవాలయానికి",
+                    "సముద్రతీరానికి",
+                    "సమాజ మందిరానికి"
+                ]
+            },
+            {
+                "id": 23,
+                "question": "దేవాలయ ద్వారం పేరు ఏమిటి?",
+                "answer": "అందమైన ద్వారం",
+                "options": [
+                    "అందమైన ద్వారం",
+                    "బంగారు ద్వారం",
+                    "తూర్పు ద్వారం",
+                    "పరిశుద్ధ ద్వారం"
+                ]
+            },
+            {
+                "id": 24,
+                "question": "ఆ ద్వారం దగ్గర కూర్చున్న మనిషి ఏ స్థితిలో ఉన్నాడు?",
+                "answer": "కుంటివాడు",
+                "options": [
+                    "అంధుడు",
+                    "కుంటివాడు",
+                    "చెవిటివాడు",
+                    "మూగవాడు"
+                ]
+            },
+            {
+                "id": 25,
+                "question": "ఆ కుంటివాడు ఎప్పటి నుండి కుంటివాడు?",
+                "answer": "జన్మనుండి",
+                "options": [
+                    "చిన్ననాటి నుండి",
+                    "జన్మనుండి",
+                    "10 సంవత్సరాల నుండి",
+                    "20 సంవత్సరాల నుండి"
+                ]
+            },
+            {
+                "id": 26,
+                "question": "పేతురు అతనితో “వెండి బంగారము” గురించి ఏమన్నాడు?",
+                "answer": "“నాకు వెండి బంగారములు లేవు”",
+                "options": [
+                    "“నాకు ఉంది”",
+                    "“నాకు వెండి బంగారములు లేవు”",
+                    "“రేపు ఇస్తాను”",
+                    "“దేవాలయంలో ఉన్నాయి”"
+                ]
+            },
+            {
+                "id": 27,
+                "question": "పేతురు ఏ పేరులో ఆ కుంటివాడిని నడవమన్నాడు?",
+                "answer": "యేసుక్రీస్తు నజరేయుని నామములో",
+                "options": [
+                    "మోషే పేరు",
+                    "యేసుక్రీస్తు నజరేయుని నామములో",
+                    "దావీదు పేరు",
+                    "అబ్రాహాము పేరు"
+                ]
+            },
+            {
+                "id": 28,
+                "question": "పేతురు ప్రసంగం విన్న పురుషుల సంఖ్య సుమారు ఎంతకు చేరింది?",
+                "answer": "5,000",
+                "options": [
+                    "1,000",
+                    "2,000",
+                    "5,000",
+                    "10,000"
+                ]
+            },
+            {
+                "id": 29,
+                "question": "పేతురు, యోహానులను ఎవరు పట్టుకున్నారు?",
+                "answer": "యాజకులు, దేవాలయ అధికారి, సద్దూకయ్యులు",
+                "options": [
+                    "రోమా సైనికులు",
+                    "యాజకులు, దేవాలయ అధికారి, సద్దూకయ్యులు",
+                    "సమరయులు",
+                    "గలిలయులు"
+                ]
+            },
+            {
+                "id": 30,
+                "question": "పేతురు పరిశుద్ధాత్మతో నిండుకొని ఎవరిని గురించి సాక్ష్యమిచ్చాడు?",
+                "answer": "యేసుక్రీస్తును",
+                "options": [
+                    "మోషేను",
+                    "యేసుక్రీస్తును",
+                    "యోహానును",
+                    "దావీదును"
+                ]
+            },
+            {
+                "id": 31,
+                "question": "“మనుష్యుల మధ్య” రక్షణకు ఇవ్వబడిన నామము ఎవరిది?",
+                "answer": "యేసుక్రీస్తు",
+                "options": [
+                    "పేతురు",
+                    "యేసుక్రీస్తు",
+                    "మోషే",
+                    "అబ్రాహాము"
+                ]
+            },
+            {
+                "id": 32,
+                "question": "పేతురు, యోహాను ధైర్యంగా మాట్లాడటం చూసి అధికారులు ఏమి గుర్తించారు?",
+                "answer": "వారు చదువులేనివారు, సామాన్యులని",
+                "options": [
+                    "వారు యాజకులని",
+                    "వారు చదువులేనివారు, సామాన్యులని",
+                    "వారు రాజులని",
+                    "వారు రోమీయులని"
+                ]
+            },
+            {
+                "id": 33,
+                "question": "“మేము చూచినవాటిని వినినవాటిని చెప్పక ఉండలేము” అని ఎవరు అన్నారు?",
+                "answer": "పేతురు, యోహాను",
+                "options": [
+                    "పౌలు",
+                    "పేతురు, యోహాను",
+                    "బర్నబా",
+                    "స్తెఫను"
+                ]
+            },
+            {
+                "id": 34,
+                "question": "విశ్వాసులు ప్రార్థించినప్పుడు వారు ఉన్న స్థలం ఏమైంది?",
+                "answer": "కంపించింది",
+                "options": [
+                    "చీకటిగా మారింది",
+                    "కంపించింది",
+                    "అగ్నితో నిండింది",
+                    "మూసుకుపోయింది"
+                ]
+            },
+            {
+                "id": 35,
+                "question": "విశ్వాసులు తమ ఆస్తులను ఎలా ఉపయోగించారు?",
+                "answer": "తమలో పంచుకున్నారు",
+                "options": [
+                    "దాచుకున్నారు",
+                    "తమలో పంచుకున్నారు",
+                    "రాజుకు ఇచ్చారు",
+                    "దేవాలయానికి మాత్రమే ఇచ్చారు"
+                ]
+            },
+            {
+                "id": 36,
+                "question": "బర్నబా అనే పేరుకు అర్థం ఏమిటి?",
+                "answer": "ఆదరణ కుమారుడు",
+                "options": [
+                    "విశ్వాసపు కుమారుడు",
+                    "ఆదరణ కుమారుడు",
+                    "వెలుగు కుమారుడు",
+                    "ప్రేమ కుమారుడు"
+                ]
+            },
+            {
+                "id": 37,
+                "question": "బర్నబా తన పొలాన్ని అమ్మి వచ్చిన డబ్బును ఎవరికి ఇచ్చాడు?",
+                "answer": "అపొస్తలుల పాదాల దగ్గర ఉంచాడు",
+                "options": [
+                    "పేదలకు నేరుగా",
+                    "అపొస్తలుల పాదాల దగ్గర ఉంచాడు",
+                    "దేవాలయానికి",
+                    "రోమీయులకు"
+                ]
+            },
+            {
+                "id": 38,
+                "question": "అననీయ, సప్పీరా ఏ విషయం గురించి అబద్ధం చెప్పారు?",
+                "answer": "భూమి అమ్మిన డబ్బు విషయమై",
+                "options": [
+                    "తమ వయస్సు",
+                    "భూమి అమ్మిన డబ్బు విషయమై",
+                    "తమ కుటుంబం విషయమై",
+                    "తమ ఊరు విషయమై"
+                ]
+            },
+            {
+                "id": 39,
+                "question": "అననీయ ఎవరి ముందు పడిపోయి చనిపోయాడు?",
+                "answer": "పేతురు ముందు",
+                "options": [
+                    "పేతురు ముందు",
+                    "పౌలు ముందు",
+                    "యోహాను ముందు",
+                    "బర్నబా ముందు"
+                ]
+            },
+            {
+                "id": 40,
+                "question": "అననీయ మరణించిన తరువాత సప్పీరా సుమారు ఎన్ని గంటల తరువాత వచ్చింది?",
+                "answer": "3 గంటలు",
+                "options": [
+                    "1 గంట",
+                    "2 గంటలు",
+                    "3 గంటలు",
+                    "5 గంటలు"
+                ]
+            },
+            {
+                "id": 41,
+                "question": "అపొస్తలులు ఎక్కడ అనేక అద్భుతాలు చేశారు?",
+                "answer": "సొలొమోను మంటపంలో",
+                "options": [
+                    "సొలొమోను మంటపంలో",
+                    "బెతనియలో",
+                    "గలిలయలో",
+                    "సమరయలో"
+                ]
+            },
+            {
+                "id": 42,
+                "question": "అపొస్తలులను జైలులో నుండి ఎవరు విడుదల చేశారు?",
+                "answer": "ప్రభువు దూత",
+                "options": [
+                    "రోమా సైనికుడు",
+                    "ప్రభువు దూత",
+                    "గమలీయేలు",
+                    "పేతురు"
+                ]
+            },
+            {
+                "id": 43,
+                "question": "అపొస్తలులు విడుదలైన తరువాత ఎక్కడ బోధించారు?",
+                "answer": "దేవాలయంలో",
+                "options": [
+                    "ఇళ్లలో మాత్రమే",
+                    "దేవాలయంలో",
+                    "సమరయలో",
+                    "రోములో"
+                ]
+            },
+            {
+                "id": 44,
+                "question": "“మనుష్యులకు కంటే దేవునికే విధేయులమై ఉండాలి” అని ఎవరు చెప్పారు?",
+                "answer": "పేతురు",
+                "options": [
+                    "పేతురు",
+                    "పౌలు",
+                    "యోహాను",
+                    "బర్నబా"
+                ]
+            },
+            {
+                "id": 45,
+                "question": "గమలీయేలు ఎవరు?",
+                "answer": "ధర్మశాస్త్ర బోధకుడు",
+                "options": [
+                    "రోమా అధికారి",
+                    "ధర్మశాస్త్ర బోధకుడు",
+                    "మత్స్యకారుడు",
+                    "ప్రధాన యాజకుడు"
+                ]
+            },
+            {
+                "id": 46,
+                "question": "మొదటి సంఘంలో ఎన్ని మంది సేవకులను ఎన్నుకున్నారు?",
+                "answer": "7",
+                "options": [
+                    "5",
+                    "7",
+                    "10",
+                    "12"
+                ]
+            },
+            {
+                "id": 47,
+                "question": "ఆ ఏడుగురిలో మొదటి పేరు ఎవరిది?",
+                "answer": "స్తెఫను",
+                "options": [
+                    "ఫిలిప్పు",
+                    "స్తెఫను",
+                    "నికొలాయు",
+                    "ప్రొకొరా"
+                ]
+            },
+            {
+                "id": 48,
+                "question": "స్తెఫను ఎటువంటి వ్యక్తి?",
+                "answer": "విశ్వాసముతోను పరిశుద్ధాత్మతోను నిండినవాడు",
+                "options": [
+                    "విశ్వాసముతోను పరిశుద్ధాత్మతోను నిండినవాడు",
+                    "రోమా అధికారి",
+                    "సైనికుడు",
+                    "ధనవంతుడు మాత్రమే"
+                ]
+            },
+            {
+                "id": 49,
+                "question": "స్తెఫను మీద ఆరోపణలు చేసినవారు ఏమి చేశారు?",
+                "answer": "అతనిని పట్టుకొని సభకు తీసుకువచ్చారు",
+                "options": [
+                    "అతనిని రాజుగా చేశారు",
+                    "అతనిని పట్టుకొని సభకు తీసుకువచ్చారు",
+                    "అతనిని విడిచిపెట్టారు",
+                    "అతనితో కలిసి బోధించారు"
+                ]
+            },
+            {
+                "id": 50,
+                "question": "స్తెఫను ముఖం ఎలా కనిపించింది?",
+                "answer": "దేవదూత ముఖంలా",
+                "options": [
+                    "రాజు ముఖంలా",
+                    "దేవదూత ముఖంలా",
+                    "ప్రవక్త ముఖంలా",
+                    "సైనికుడి ముఖంలా"
+                ]
+            },
+            {
+                "id": 51,
+                "question": "స్తెఫను తన ప్రసంగంలో మొదట ఎవరి గురించి మాట్లాడాడు?",
+                "answer": "అబ్రాహాము",
+                "options": [
+                    "అబ్రాహాము",
+                    "పేతురు",
+                    "పౌలు",
+                    "దావీదు"
+                ]
+            },
+            {
+                "id": 52,
+                "question": "అబ్రాహాము మొదట ఏ దేశంలో నివసించాడు?",
+                "answer": "మెసొపొటేమియా",
+                "options": [
+                    "ఈజిప్టు",
+                    "మెసొపొటేమియా",
+                    "కనాను",
+                    "రోము"
+                ]
+            },
+            {
+                "id": 53,
+                "question": "స్తెఫను ప్రకారం మోషే ఎక్కడ పెరిగాడు?",
+                "answer": "ఐగుప్తీయుల జ్ఞానమంతటిలో",
+                "options": [
+                    "యెరూషలేములో",
+                    "ఐగుప్తీయుల జ్ఞానమంతటిలో",
+                    "రోములో",
+                    "సమరయలో"
+                ]
+            },
+            {
+                "id": 54,
+                "question": "మోషేకు అరణ్యంలో దేవుడు ఎక్కడ ప్రత్యక్షమయ్యాడు?",
+                "answer": "మండుచున్న పొదలో",
+                "options": [
+                    "సముద్రం దగ్గర",
+                    "మండుచున్న పొదలో",
+                    "దేవాలయంలో",
+                    "పర్వత శిఖరంపై"
+                ]
+            },
+            {
+                "id": 55,
+                "question": "స్తెఫను మరణించే ముందు ఆకాశం తెరుచుకొని ఏమి చూశాడు?",
+                "answer": "దేవుని మహిమను, యేసు దేవుని కుడిపార్శ్వమున నిలుచుటను",
+                "options": [
+                    "దేవదూతలను మాత్రమే",
+                    "దేవుని మహిమను, యేసు దేవుని కుడిపార్శ్వమున నిలుచుటను",
+                    "మోషేను",
+                    "పేతురును"
+                ]
+            },
+            {
+                "id": 56,
+                "question": "స్తెఫనును రాళ్లతో కొట్టి చంపినప్పుడు అతను ఏమి ప్రార్థించాడు?",
+                "answer": "“ప్రభువైన యేసూ, నా ఆత్మను చేర్చుకొనుము”",
+                "options": [
+                    "“ప్రభువా, నన్ను రాజుగా చేయు”",
+                    "“ప్రభువైన యేసూ, నా ఆత్మను చేర్చుకొనుము”",
+                    "“నన్ను రక్షించు” మాత్రమే",
+                    "“వారిని జైలులో పెట్టు”"
+                ]
+            },
+            {
+                "id": 57,
+                "question": "స్తెఫను చంపబడుతున్నప్పుడు బట్టలు ఎవరి పాదాల దగ్గర ఉంచారు?",
+                "answer": "సౌలు",
+                "options": [
+                    "పేతురు",
+                    "సౌలు",
+                    "యోహాను",
+                    "బర్నబా"
+                ]
+            },
+            {
+                "id": 58,
+                "question": "స్తెఫను మరణాన్ని సౌలు ఎలా అంగీకరించాడు?",
+                "answer": "సమ్మతించాడు",
+                "options": [
+                    "వ్యతిరేకించాడు",
+                    "సమ్మతించాడు",
+                    "భయపడ్డాడు",
+                    "పారిపోయాడు"
+                ]
+            },
+            {
+                "id": 59,
+                "question": "సంఘంపై హింస మొదలైనప్పుడు విశ్వాసులు ఎక్కడెక్కడికి చెదరిపోయారు?",
+                "answer": "యూదయ, సమరయ ప్రాంతాలలో",
+                "options": [
+                    "యూదయ, సమరయ ప్రాంతాలలో",
+                    "రోము మాత్రమే",
+                    "ఐగుప్తు మాత్రమే",
+                    "గలిలయ మాత్రమే"
+                ]
+            },
+            {
+                "id": 60,
+                "question": "సమరయలో సువార్త ప్రకటించినవాడు ఎవరు?",
+                "answer": "ఫిలిప్పు",
+                "options": [
+                    "పేతురు",
+                    "ఫిలిప్పు",
+                    "యోహాను",
+                    "స్తెఫను"
+                ]
+            },
+            {
+                "id": 61,
+                "question": "ఫిలిప్పు సమరయలో ఏవిధంగా ప్రకటించాడు?",
+                "answer": "క్రీస్తును ప్రకటించాడు",
+                "options": [
+                    "క్రీస్తును ప్రకటించాడు",
+                    "మోషేను మాత్రమే ప్రకటించాడు",
+                    "రోమా రాజును ప్రకటించాడు",
+                    "ధనాన్ని ప్రకటించాడు"
+                ]
+            },
+            {
+                "id": 62,
+                "question": "సమరయలో సీమోను అనే వ్యక్తి ఏ పని చేసేవాడు?",
+                "answer": "మాంత్రికుడు",
+                "options": [
+                    "మత్స్యకారుడు",
+                    "మాంత్రికుడు",
+                    "సైనికుడు",
+                    "యాజకుడు"
+                ]
+            },
+            {
+                "id": 63,
+                "question": "సీమోను ఏమి చూసి ఆశ్చర్యపడ్డాడు?",
+                "answer": "ఫిలిప్పు చేసిన సూచకక్రియలను, గొప్ప అద్భుతాలను",
+                "options": [
+                    "దేవాలయాన్ని",
+                    "ఫిలిప్పు చేసిన సూచకక్రియలను, గొప్ప అద్భుతాలను",
+                    "పేతురు ప్రసంగాన్ని మాత్రమే",
+                    "రోమా సైన్యాన్ని"
+                ]
+            },
+            {
+                "id": 64,
+                "question": "పరిశుద్ధాత్మ పొందడానికి సీమోను ఏమి ఇవ్వాలని ప్రయత్నించాడు?",
+                "answer": "డబ్బు",
+                "options": [
+                    "తన ఇల్లు",
+                    "డబ్బు",
+                    "బంగారం",
+                    "పొలం"
+                ]
+            },
+            {
+                "id": 65,
+                "question": "ఫిలిప్పు ఎవరిని కలిశాడు?",
+                "answer": "ఇథియోపీయ దేశస్థుడైన నపుంసకుని",
+                "options": [
+                    "ఐగుప్తు రాణిని",
+                    "ఇథియోపీయ దేశస్థుడైన నపుంసకుని",
+                    "రోమా సైనికుడిని",
+                    "యూద ప్రధాన యాజకుడిని"
+                ]
+            },
+            {
+                "id": 66,
+                "question": "ఆ ఇథియోపీయుడు ఏ ప్రవక్త గ్రంథాన్ని చదువుతున్నాడు?",
+                "answer": "యెషయా",
+                "options": [
+                    "యిర్మీయా",
+                    "యెషయా",
+                    "దానియేలు",
+                    "యోవేలు"
+                ]
+            },
+            {
+                "id": 67,
+                "question": "ఫిలిప్పు అతనికి ఎవరి గురించి ప్రకటించాడు?",
+                "answer": "యేసు",
+                "options": [
+                    "మోషే",
+                    "యేసు",
+                    "దావీదు",
+                    "పేతురు"
+                ]
+            },
+            {
+                "id": 68,
+                "question": "ఇథియోపీయుడు బాప్తిస్మం పొందిన తరువాత ఏమి చేశాడు?",
+                "answer": "సంతోషిస్తూ తన దారిలో వెళ్లాడు",
+                "options": [
+                    "బాధపడ్డాడు",
+                    "సంతోషిస్తూ తన దారిలో వెళ్లాడు",
+                    "యెరూషలేముకు తిరిగి వెళ్లాడు",
+                    "ఫిలిప్పుతో ఉండిపోయాడు"
+                ]
+            },
+            {
+                "id": 69,
+                "question": "సౌలు దమస్కు వెళ్లడానికి ఎందుకు బయలుదేరాడు?",
+                "answer": "క్రీస్తు మార్గానికి చెందినవారిని పట్టుకోవడానికి",
+                "options": [
+                    "వ్యాపారం కోసం",
+                    "క్రీస్తు మార్గానికి చెందినవారిని పట్టుకోవడానికి",
+                    "యెరూషలేము వెళ్లడానికి",
+                    "బోధించడానికి"
+                ]
+            },
+            {
+                "id": 70,
+                "question": "దమస్కు మార్గంలో సౌలుకు ఏమి జరిగింది?",
+                "answer": "ఆకాశం నుండి వెలుగు అతని చుట్టూ ప్రకాశించింది",
+                "options": [
+                    "సముద్రంలో పడ్డాడు",
+                    "ఆకాశం నుండి వెలుగు అతని చుట్టూ ప్రకాశించింది",
+                    "రోమీయులు పట్టుకున్నారు",
+                    "అతను నిద్రపోయాడు"
+                ]
+            },
+            {
+                "id": 71,
+                "question": "సౌలుతో మాట్లాడిన స్వరం ఎవరిది?",
+                "answer": "యేసుది",
+                "options": [
+                    "పేతురుది",
+                    "యేసుది",
+                    "మోషేది",
+                    "దేవదూతది"
+                ]
+            },
+            {
+                "id": 72,
+                "question": "యేసు సౌలుతో “నన్ను” ఏమి చేస్తున్నావని అడిగాడు?",
+                "answer": "ఎందుకు హింసిస్తున్నావు",
+                "options": [
+                    "ప్రేమిస్తున్నావు",
+                    "ఎందుకు హింసిస్తున్నావు",
+                    "వెదుకుతున్నావు",
+                    "సేవిస్తున్నావు"
+                ]
+            },
+            {
+                "id": 73,
+                "question": "సౌలు దమస్కులో ఎన్ని రోజులు చూపులేకుండా ఉన్నాడు?",
+                "answer": "3 రోజులు",
+                "options": [
+                    "1 రోజు",
+                    "2 రోజులు",
+                    "3 రోజులు",
+                    "7 రోజులు"
+                ]
+            },
+            {
+                "id": 74,
+                "question": "సౌలుకు చూపు తిరిగి రావడానికి దేవుడు ఎవరిని పంపాడు?",
+                "answer": "అననీయ",
+                "options": [
+                    "పేతురు",
+                    "అననీయ",
+                    "బర్నబా",
+                    "ఫిలిప్పు"
+                ]
+            },
+            {
+                "id": 75,
+                "question": "అననీయ సౌలును ఏ పేరుతో సంబోధించాడు?",
+                "answer": "సహోదరుడా సౌలా",
+                "options": [
+                    "సహోదరుడా సౌలా",
+                    "ప్రభువా సౌలా",
+                    "రాజా సౌలా",
+                    "శిష్యుడా సౌలా"
+                ]
+            },
+            {
+                "id": 76,
+                "question": "సౌలు బాప్తిస్మం పొందిన తరువాత ఏమి చేశాడు?",
+                "answer": "యేసే దేవుని కుమారుడని ప్రకటించాడు",
+                "options": [
+                    "యెరూషలేముకు వెళ్లాడు",
+                    "యేసే దేవుని కుమారుడని ప్రకటించాడు",
+                    "రోముకు వెళ్లాడు",
+                    "ఉపవాసం చేశాడు"
+                ]
+            },
+            {
+                "id": 77,
+                "question": "సౌలును చంపాలని యూదులు ప్రయత్నించినప్పుడు అతనిని ఎలా తప్పించారు?",
+                "answer": "గోడ కిటికీ నుండి గంపలో దింపారు",
+                "options": [
+                    "గుర్రంపై పంపారు",
+                    "గోడ కిటికీ నుండి గంపలో దింపారు",
+                    "పడవలో పంపారు",
+                    "రహస్య మార్గంలో పంపారు"
+                ]
+            },
+            {
+                "id": 78,
+                "question": "సౌలు యెరూషలేముకు వచ్చినప్పుడు అతనిని ఎవరు పరిచయం చేశారు?",
+                "answer": "బర్నబా",
+                "options": [
+                    "పేతురు",
+                    "బర్నబా",
+                    "యోహాను",
+                    "ఫిలిప్పు"
+                ]
+            },
+            {
+                "id": 79,
+                "question": "పేతురు లుద్దలో ఎవరిని స్వస్థపరిచాడు?",
+                "answer": "ఐనేయ",
+                "options": [
+                    "ఐనేయ",
+                    "కొర్నేలి",
+                    "తబిత",
+                    "సౌలు"
+                ]
+            },
+            {
+                "id": 80,
+                "question": "ఐనేయ ఎన్ని సంవత్సరాలు పక్షవాతంతో ఉన్నాడు?",
+                "answer": "8 సంవత్సరాలు",
+                "options": [
+                    "5 సంవత్సరాలు",
+                    "7 సంవత్సరాలు",
+                    "8 సంవత్సరాలు",
+                    "10 సంవత్సరాలు"
+                ]
+            },
+            {
+                "id": 81,
+                "question": "యొప్పాలో మరణించిన శిష్యురాలి పేరు ఏమిటి?",
+                "answer": "తబిత",
+                "options": [
+                    "మార్త",
+                    "తబిత",
+                    "మరియ",
+                    "దొర్కా మాత్రమే"
+                ]
+            },
+            {
+                "id": 82,
+                "question": "తబిత అనే పేరుకు గ్రీకు అర్థం ఏమిటి?",
+                "answer": "దొర్కా",
+                "options": [
+                    "మరియ",
+                    "దొర్కా",
+                    "దేవదూత",
+                    "విశ్వాసం"
+                ]
+            },
+            {
+                "id": 83,
+                "question": "పేతురు తబిత కోసం ఏమి చేశాడు?",
+                "answer": "ప్రార్థించి ఆమెను లేపాడు",
+                "options": [
+                    "ఆమెను పాతిపెట్టాడు",
+                    "ప్రార్థించి ఆమెను లేపాడు",
+                    "ఆమెను యెరూషలేముకు పంపాడు",
+                    "ఉపవాసం చేశాడు"
+                ]
+            },
+            {
+                "id": 84,
+                "question": "కొర్నేలి ఏ పట్టణంలో నివసించాడు?",
+                "answer": "కైసరయ",
+                "options": [
+                    "యొప్పా",
+                    "కైసరయ",
+                    "లుద్ద",
+                    "దమస్కు"
+                ]
+            },
+            {
+                "id": 85,
+                "question": "కొర్నేలి ఏ వృత్తికి చెందినవాడు?",
+                "answer": "శతాధిపతి",
+                "options": [
+                    "మత్స్యకారుడు",
+                    "శతాధిపతి",
+                    "యాజకుడు",
+                    "వ్యాపారి"
+                ]
+            },
+            {
+                "id": 86,
+                "question": "కొర్నేలి ఎవరికి చెందిన దళానికి శతాధిపతి?",
+                "answer": "ఇటాలియన్ దళం",
+                "options": [
+                    "ఇటాలియన్ దళం",
+                    "గ్రీకు దళం",
+                    "యూద దళం",
+                    "సమరయ దళం"
+                ]
+            },
+            {
+                "id": 87,
+                "question": "కొర్నేలికి దేవదూత ఏమి చేయమని చెప్పాడు?",
+                "answer": "యొప్పాకు మనుషులను పంపి పేతురును పిలిపించమని",
+                "options": [
+                    "యెరూషలేముకు వెళ్లమని",
+                    "యొప్పాకు మనుషులను పంపి పేతురును పిలిపించమని",
+                    "పౌలును పిలిపించమని",
+                    "సమరయకు వెళ్లమని"
+                ]
+            },
+            {
+                "id": 88,
+                "question": "పేతురు యొప్పాలో ఎవరింట నివసించాడు?",
+                "answer": "సీమోను అనే చర్మకారుని ఇంట",
+                "options": [
+                    "సీమోను అనే చర్మకారుని ఇంట",
+                    "బర్నబా ఇంట",
+                    "ఫిలిప్పు ఇంట",
+                    "కొర్నేలి ఇంట"
+                ]
+            },
+            {
+                "id": 89,
+                "question": "పేతురు దర్శనంలో ఆకాశం నుండి ఏమి దిగివచ్చింది?",
+                "answer": "పెద్ద దుప్పటి వంటి పాత్ర",
+                "options": [
+                    "అగ్ని",
+                    "పెద్ద దుప్పటి వంటి పాత్ర",
+                    "మేఘము",
+                    "పుస్తకం"
+                ]
+            },
+            {
+                "id": 90,
+                "question": "ఆ పాత్రలో ఏమి ఉన్నాయి?",
+                "answer": "వివిధ రకాల జంతువులు",
+                "options": [
+                    "బంగారం",
+                    "వివిధ రకాల జంతువులు",
+                    "రొట్టెలు",
+                    "పుస్తకాలు"
+                ]
+            },
+            {
+                "id": 91,
+                "question": "పేతురుతో “దేవుడు పవిత్రపరచిన వాటిని నీవు అపవిత్రమైనవని అనకుము” అని ఎవరు చెప్పారు?",
+                "answer": "ప్రభువు",
+                "options": [
+                    "కొర్నేలి",
+                    "ప్రభువు",
+                    "యోహాను",
+                    "పౌలు"
+                ]
+            },
+            {
+                "id": 92,
+                "question": "కొర్నేలి ఇంటికి పేతురు వెళ్లినప్పుడు అక్కడ ఎవరు కూడి ఉన్నారు?",
+                "answer": "అతని బంధువులు, సన్నిహిత మిత్రులు",
+                "options": [
+                    "అతని బంధువులు, సన్నిహిత మిత్రులు",
+                    "యూదులు మాత్రమే",
+                    "రోమా సైనికులు మాత్రమే",
+                    "యాజకులు మాత్రమే"
+                ]
+            },
+            {
+                "id": 93,
+                "question": "పేతురు కొర్నేలి ఇంట్లో ఏమి గ్రహించాడు?",
+                "answer": "దేవుడు పక్షపాతి కాడు",
+                "options": [
+                    "దేవుడు యూదులను మాత్రమే అంగీకరిస్తాడు",
+                    "దేవుడు పక్షపాతి కాడు",
+                    "రోమీయులు రక్షింపబడరు",
+                    "సమరయులు మాత్రమే రక్షింపబడతారు"
+                ]
+            },
+            {
+                "id": 94,
+                "question": "పేతురు ఇంకా మాట్లాడుచుండగా ఎవరిపై పరిశుద్ధాత్మ కుమ్మరించబడింది?",
+                "answer": "వాక్యము విన్న వారందరిపై",
+                "options": [
+                    "యూదులపై మాత్రమే",
+                    "వాక్యము విన్న వారందరిపై",
+                    "అపొస్తలులపై మాత్రమే",
+                    "సైనికులపై మాత్రమే"
+                ]
+            },
+            {
+                "id": 95,
+                "question": "కొర్నేలి ఇంటివారు పరిశుద్ధాత్మ పొందినప్పుడు ఏమి చేశారు?",
+                "answer": "భాషలలో మాట్లాడి దేవుని ఘనపరిచారు",
+                "options": [
+                    "మౌనంగా ఉన్నారు",
+                    "భాషలలో మాట్లాడి దేవుని ఘనపరిచారు",
+                    "యెరూషలేముకు వెళ్లారు",
+                    "పారిపోయారు"
+                ]
+            },
+            {
+                "id": 96,
+                "question": "యేసు శిష్యులను మొదట ఏ పట్టణంలో “క్రైస్తవులు” అని పిలిచారు?",
+                "answer": "అంతియొకయ",
+                "options": [
+                    "యెరూషలేము",
+                    "అంతియొకయ",
+                    "రోము",
+                    "దమస్కు"
+                ]
+            },
+            {
+                "id": 97,
+                "question": "యూదయలో గొప్ప కరువు వస్తుందని ఎవరు ప్రవచించాడు?",
+                "answer": "అగబు",
+                "options": [
+                    "పేతురు",
+                    "అగబు",
+                    "బర్నబా",
+                    "సీల"
+                ]
+            },
+            {
+                "id": 98,
+                "question": "హెరోదు రాజు ఎవరి మీద చేతులు వేసి హింసించాడు?",
+                "answer": "సంఘంలోని కొందరిపై",
+                "options": [
+                    "సంఘంలోని కొందరిపై",
+                    "రోమీయులపై",
+                    "సమరయులపై",
+                    "పరిసయ్యులపై"
+                ]
+            },
+            {
+                "id": 99,
+                "question": "హెరోదు యోహాను సోదరుడైన యాకోబును ఎలా చంపించాడు?",
+                "answer": "ఖడ్గంతో",
+                "options": [
+                    "రాళ్లతో",
+                    "ఖడ్గంతో",
+                    "సిలువతో",
+                    "అగ్నితో"
+                ]
+            },
+            {
+                "id": 100,
+                "question": "పేతురు జైలులో ఉన్నప్పుడు సంఘం అతని కోసం ఏమి చేసింది?",
+                "answer": "అతని కోసం దేవునికి పట్టుదలగా ప్రార్థించింది",
+                "options": [
+                    "పండుగ చేసుకుంది",
+                    "అతని కోసం దేవునికి పట్టుదలగా ప్రార్థించింది",
+                    "రోమీయులను ఆశ్రయించింది",
+                    "యెరూషలేము విడిచింది"
+                ]
+            },
+            {
+                "id": 101,
+                "question": "పేతురు జైలులో నుండి ఎలా విడుదలయ్యాడు?",
+                "answer": "ప్రభువు దూత అతనిని బయటకు తీసుకువచ్చాడు",
+                "options": [
+                    "తానే తప్పించుకున్నాడు",
+                    "ప్రభువు దూత అతనిని బయటకు తీసుకువచ్చాడు",
+                    "రోమా అధికారి విడిచాడు",
+                    "యోహాను అతనిని తీసుకువచ్చాడు"
+                ]
+            },
+            {
+                "id": 102,
+                "question": "పేతురు జైలులో ఉన్నప్పుడు అతని చేతులకు ఏమి ఉన్నాయి?",
+                "answer": "సంకెళ్లు",
+                "options": [
+                    "తాళ్లు",
+                    "సంకెళ్లు",
+                    "గొలుసులు మాత్రమే",
+                    "ఏమీ లేవు"
+                ]
+            },
+            {
+                "id": 103,
+                "question": "పేతురు విడుదలైన తరువాత ఎవరింటికి వెళ్లాడు?",
+                "answer": "యోహాను మార్కు తల్లి మరియ ఇంటికి",
+                "options": [
+                    "మరియ ఇంటికి",
+                    "యోహాను మార్కు తల్లి మరియ ఇంటికి",
+                    "బర్నబా ఇంటికి",
+                    "కొర్నేలి ఇంటికి"
+                ]
+            },
+            {
+                "id": 104,
+                "question": "పేతురు తలుపు తట్టినప్పుడు తలుపు దగ్గరకు వచ్చిన దాసి పేరు ఏమిటి?",
+                "answer": "రోదె",
+                "options": [
+                    "మార్త",
+                    "రోదె",
+                    "దొర్కా",
+                    "సప్పీరా"
+                ]
+            },
+            {
+                "id": 105,
+                "question": "హెరోదు తనను దేవుని స్వరంలా ప్రజలు పొగిడినప్పుడు ఏమి జరిగింది?",
+                "answer": "ప్రభువు దూత అతనిని కొట్టి, పురుగులు పట్టి చనిపోయాడు",
+                "options": [
+                    "అతను రాజయ్యాడు",
+                    "ప్రభువు దూత అతనిని కొట్టి, పురుగులు పట్టి చనిపోయాడు",
+                    "అతను పారిపోయాడు",
+                    "అతను పశ్చాత్తాపపడ్డాడు"
+                ]
+            },
+            {
+                "id": 106,
+                "question": "బర్నబా, సౌలుతో పాటు సేవలో ఉన్న యోహాను యొక్క మారు పేరు ఏమిటి?",
+                "answer": "మార్కు",
+                "options": [
+                    "పేతురు",
+                    "మార్కు",
+                    "సీల",
+                    "లూకా"
+                ]
+            },
+            {
+                "id": 107,
+                "question": "అంతియొకయ సంఘంలో ఉన్న ప్రవక్తలు, బోధకులలో ఎవరు ఉన్నారు?",
+                "answer": "బర్నబా, సౌలు",
+                "options": [
+                    "బర్నబా, సౌలు",
+                    "పేతురు, యోహాను",
+                    "యాకోబు, తోమా",
+                    "ఫిలిప్పు, స్తెఫను"
+                ]
+            },
+            {
+                "id": 108,
+                "question": "పరిశుద్ధాత్మ బర్నబా, సౌలును ఏ పని కోసం ప్రత్యేకపరిచింది?",
+                "answer": "తాను పిలిచిన కార్యానికి",
+                "options": [
+                    "రాజులుగా",
+                    "తాను పిలిచిన కార్యానికి",
+                    "యాజకులుగా",
+                    "రోముకు అధికారులుగా"
+                ]
+            },
+            {
+                "id": 109,
+                "question": "సౌలు మరియు బర్నబా మొదట ఎక్కడికి పంపబడ్డారు?",
+                "answer": "సైప్రస్",
+                "options": [
+                    "సైప్రస్",
+                    "రోము",
+                    "ఏథెన్స్",
+                    "కొరింథు"
+                ]
+            },
+            {
+                "id": 110,
+                "question": "సైప్రస్‌లో సౌలు, బర్నబా ఎవరి పేరు కలిగిన వ్యక్తిని కలిశారు?",
+                "answer": "ఎలీమా",
+                "options": [
+                    "బర్జేసు",
+                    "ఎలీమా",
+                    "గమలీయేలు",
+                    "కొర్నేలి"
+                ]
+            },
+            {
+                "id": 111,
+                "question": "ఎలీమా ఏ పని చేసేవాడు?",
+                "answer": "మాంత్రికుడు",
+                "options": [
+                    "యాజకుడు",
+                    "మాంత్రికుడు",
+                    "మత్స్యకారుడు",
+                    "సైనికుడు"
+                ]
+            },
+            {
+                "id": 112,
+                "question": "ఎలీమాను పౌలు ఏ శిక్షకు గురిచేశాడు?",
+                "answer": "కొంతకాలం అంధుడయ్యాడు",
+                "options": [
+                    "చెవిటివాడయ్యాడు",
+                    "కొంతకాలం అంధుడయ్యాడు",
+                    "కుంటివాడయ్యాడు",
+                    "మాట్లాడలేకపోయాడు"
+                ]
+            },
+            {
+                "id": 113,
+                "question": "సౌలు ఏ పేరుతో ఎక్కువగా పిలవబడడం ప్రారంభించాడు?",
+                "answer": "పౌలు",
+                "options": [
+                    "పేతురు",
+                    "పౌలు",
+                    "బర్నబా",
+                    "సీల"
+                ]
+            },
+            {
+                "id": 114,
+                "question": "పౌలు పిసిదియలోని అంతియొకయలో ఏ దినమున సమాజ మందిరానికి వెళ్లాడు?",
+                "answer": "విశ్రాంతిదినము",
+                "options": [
+                    "మొదటి రోజు",
+                    "విశ్రాంతిదినము",
+                    "పండుగ రోజు",
+                    "ఆదివారం"
+                ]
+            },
+            {
+                "id": 115,
+                "question": "పౌలు తన ప్రసంగంలో యేసును మృతులలో నుండి ఎవరు లేపారని చెప్పాడు?",
+                "answer": "దేవుడు",
+                "options": [
+                    "పేతురు",
+                    "దేవుడు",
+                    "రోమా ప్రభుత్వం",
+                    "యూదులు"
+                ]
+            },
+            {
+                "id": 116,
+                "question": "పౌలు మరియు బర్నబా తమను అన్యజనులకు ఏమిగా నియమించబడ్డారని చెప్పారు?",
+                "answer": "వెలుగుగా",
+                "options": [
+                    "రాజులు",
+                    "వెలుగుగా",
+                    "యాజకులుగా",
+                    "సైనికులుగా"
+                ]
+            },
+            {
+                "id": 117,
+                "question": "ఐకొనియలో పౌలు, బర్నబా ఎక్కడ బోధించారు?",
+                "answer": "యూదుల సమాజ మందిరంలో",
+                "options": [
+                    "రాజభవనంలో",
+                    "యూదుల సమాజ మందిరంలో",
+                    "జైలులో",
+                    "సముద్రతీరంలో"
+                ]
+            },
+            {
+                "id": 118,
+                "question": "లుస్త్రలో పుట్టుకతోనే కుంటివాడైన మనిషి ఎవరి మాట వింటున్నాడు?",
+                "answer": "పౌలు",
+                "options": [
+                    "పేతురు",
+                    "పౌలు",
+                    "బర్నబా",
+                    "సీల"
+                ]
+            },
+            {
+                "id": 119,
+                "question": "లుస్త్ర ప్రజలు బర్నబాను ఏ దేవుడిగా పిలిచారు?",
+                "answer": "జ్యూస్",
+                "options": [
+                    "జ్యూస్",
+                    "హెర్మేసు",
+                    "అపోలో",
+                    "మార్స్"
+                ]
+            },
+            {
+                "id": 120,
+                "question": "పౌలును ఏ దేవుడిగా పిలిచారు?",
+                "answer": "హెర్మేసు",
+                "options": [
+                    "జ్యూస్",
+                    "హెర్మేసు",
+                    "అపోలో",
+                    "పోసైడన్"
+                ]
+            },
+            {
+                "id": 121,
+                "question": "అన్యజనులు తమకు బలి అర్పించబోతున్నప్పుడు పౌలు, బర్నబా ఏమి చేశారు?",
+                "answer": "తమ బట్టలు చింపుకొని వారిని ఆపారు",
+                "options": [
+                    "అంగీకరించారు",
+                    "తమ బట్టలు చింపుకొని వారిని ఆపారు",
+                    "అక్కడి నుండి పారిపోయారు",
+                    "బలి అర్పించారు"
+                ]
+            },
+            {
+                "id": 122,
+                "question": "పౌలు లుస్త్రలో రాళ్లతో కొట్టబడిన తరువాత ఏమి జరిగింది?",
+                "answer": "శిష్యులు చుట్టూ నిలబడగా లేచి పట్టణంలోకి వెళ్లాడు",
+                "options": [
+                    "వెంటనే చనిపోయాడు",
+                    "శిష్యులు చుట్టూ నిలబడగా లేచి పట్టణంలోకి వెళ్లాడు",
+                    "రోముకు వెళ్లాడు",
+                    "జైలులో పెట్టబడ్డాడు"
+                ]
+            },
+            {
+                "id": 123,
+                "question": "యెరూషలేములో జరిగిన సభకు ప్రధాన కారణం ఏమిటి?",
+                "answer": "అన్యజన విశ్వాసులు సున్నతి పొందాలా అనే విషయం",
+                "options": [
+                    "పన్నుల విషయం",
+                    "అన్యజన విశ్వాసులు సున్నతి పొందాలా అనే విషయం",
+                    "రోమా యుద్ధం",
+                    "దేవాలయ నిర్మాణం"
+                ]
+            },
+            {
+                "id": 124,
+                "question": "ఆ సభలో పేతురు దేవుడు అన్యజనులకు ఏమి ఇచ్చాడని చెప్పాడు?",
+                "answer": "పరిశుద్ధాత్మ",
+                "options": [
+                    "ధనం",
+                    "పరిశుద్ధాత్మ",
+                    "రాజ్యం",
+                    "దేవాలయం"
+                ]
+            },
+            {
+                "id": 125,
+                "question": "యాకోబు అన్యజన విశ్వాసులకు ఏమి నివారించమని చెప్పాడు?",
+                "answer": "విగ్రహాల అపవిత్రత, జారత్వం, గొంతుపిసికి చంపిన వాటిని, రక్తాన్ని",
+                "options": [
+                    "ప్రార్థన",
+                    "విగ్రహాల అపవిత్రత, జారత్వం, గొంతుపిసికి చంపిన వాటిని, రక్తాన్ని",
+                    "సువార్త",
+                    "బాప్తిస్మం"
+                ]
+            },
+            {
+                "id": 126,
+                "question": "పౌలు రెండవ ప్రయాణంలో తనతో ఎవరిని తీసుకున్నాడు?",
+                "answer": "తిమోతి",
+                "options": [
+                    "తిమోతి",
+                    "పేతురు",
+                    "ఫిలిప్పు",
+                    "మార్కు మాత్రమే"
+                ]
+            },
+            {
+                "id": 127,
+                "question": "తిమోతి తల్లి ఎవరు?",
+                "answer": "యూదురాలైన విశ్వాసి",
+                "options": [
+                    "యూదురాలైన విశ్వాసి",
+                    "సమరయురాలు",
+                    "రోమీయురాలు",
+                    "గ్రీకురాలు"
+                ]
+            },
+            {
+                "id": 128,
+                "question": "పౌలు దర్శనంలో మాసిదోనియా వ్యక్తి ఏమి కోరాడు?",
+                "answer": "“మాసిదోనియకు వచ్చి మాకు సహాయం చేయుము”",
+                "options": [
+                    "“నాకు ఆహారం ఇవ్వు”",
+                    "“మాసిదోనియకు వచ్చి మాకు సహాయం చేయుము”",
+                    "“రోముకు రా”",
+                    "“యెరూషలేముకు రా”"
+                ]
+            },
+            {
+                "id": 129,
+                "question": "ఫిలిప్పీలో పౌలు కలిసిన ఊదారంగు వస్త్రాలు అమ్మే స్త్రీ పేరు ఏమిటి?",
+                "answer": "లుదియా",
+                "options": [
+                    "దొర్కా",
+                    "లుదియా",
+                    "మార్త",
+                    "రోదె"
+                ]
+            },
+            {
+                "id": 130,
+                "question": "లుదియా ఏ పట్టణానికి చెందినది?",
+                "answer": "తుయతైర",
+                "options": [
+                    "తుయతైర",
+                    "కొరింథు",
+                    "ఏథెన్స్",
+                    "ఎఫెసు"
+                ]
+            },
+            {
+                "id": 131,
+                "question": "పౌలు, సీలలు ఫిలిప్పీలో ఎందుకు జైలులో వేయబడ్డారు?",
+                "answer": "ఒక దాసిలోని భూతాన్ని వెళ్లగొట్టిన కారణంగా కలిగిన కల్లోలం వల్ల",
+                "options": [
+                    "దొంగతనం కారణంగా",
+                    "ఒక దాసిలోని భూతాన్ని వెళ్లగొట్టిన కారణంగా కలిగిన కల్లోలం వల్ల",
+                    "పన్ను చెల్లించకపోవడం వల్ల",
+                    "రోమా అధికారిని అవమానించినందుకు"
+                ]
+            },
+            {
+                "id": 132,
+                "question": "పౌలు, సీలలు అర్ధరాత్రి జైలులో ఏమి చేస్తున్నారు?",
+                "answer": "ప్రార్థిస్తూ దేవునికి కీర్తనలు పాడుతున్నారు",
+                "options": [
+                    "నిద్రపోతున్నారు",
+                    "ప్రార్థిస్తూ దేవునికి కీర్తనలు పాడుతున్నారు",
+                    "భోజనం చేస్తున్నారు",
+                    "పారిపోవడానికి ప్రయత్నిస్తున్నారు"
+                ]
+            },
+            {
+                "id": 133,
+                "question": "అకస్మాత్తుగా జైలులో ఏమి జరిగింది?",
+                "answer": "గొప్ప భూకంపం వచ్చింది",
+                "options": [
+                    "అగ్ని వచ్చింది",
+                    "గొప్ప భూకంపం వచ్చింది",
+                    "నీరు వచ్చింది",
+                    "సైనికులు వచ్చారు"
+                ]
+            },
+            {
+                "id": 134,
+                "question": "ఫిలిప్పీ జైలరు పౌలును, సీలను అడిగిన ప్రశ్న ఏమిటి?",
+                "answer": "“రక్షింపబడుటకు నేనేమి చేయాలి?”",
+                "options": [
+                    "“మీరు ఎక్కడివారు?”",
+                    "“రక్షింపబడుటకు నేనేమి చేయాలి?”",
+                    "“మీరు ఎందుకు ఇక్కడున్నారు?”",
+                    "“ఎవరిని నమ్మాలి?”"
+                ]
+            },
+            {
+                "id": 135,
+                "question": "పౌలు, సీలలు జైలరుకు ఏమని చెప్పారు?",
+                "answer": "“ప్రభువైన యేసును నమ్ముము...”",
+                "options": [
+                    "“ధర్మశాస్త్రం పాటించు”",
+                    "“ప్రభువైన యేసును నమ్ముము; అప్పుడు నీవును నీ ఇంటివారును రక్షింపబడుదురు”",
+                    "“యెరూషలేముకు వెళ్లు”",
+                    "“ఉపవాసం చేయు”"
+                ]
+            },
+            {
+                "id": 136,
+                "question": "బెరయలోని ప్రజలు వాక్యాన్ని ఎలా స్వీకరించారు?",
+                "answer": "ఎంతో ఆసక్తితో",
+                "options": [
+                    "కోపంతో",
+                    "ఎంతో ఆసక్తితో",
+                    "భయంతో",
+                    "నిర్లక్ష్యంగా"
+                ]
+            },
+            {
+                "id": 137,
+                "question": "బెరయ ప్రజలు ప్రతిదినము ఏమి పరిశీలించారు?",
+                "answer": "లేఖనాలు",
+                "options": [
+                    "రోమా చట్టాలు",
+                    "లేఖనాలు",
+                    "వార్తలు",
+                    "రాజు ఆజ్ఞలు"
+                ]
+            },
+            {
+                "id": 138,
+                "question": "పౌలు ఏ నగరంలో “తెలియని దేవునికి” అంకితం చేసిన బలిపీఠాన్ని చూశాడు?",
+                "answer": "ఏథెన్స్",
+                "options": [
+                    "రోము",
+                    "ఏథెన్స్",
+                    "కొరింథు",
+                    "ఎఫెసు"
+                ]
+            },
+            {
+                "id": 139,
+                "question": "పౌలు ఏథెన్సులో ఎక్కడ ప్రసంగించాడు?",
+                "answer": "అరేయొపగు",
+                "options": [
+                    "అరేయొపగు",
+                    "దేవాలయం",
+                    "జైలు",
+                    "మార్కెట్ మాత్రమే"
+                ]
+            },
+            {
+                "id": 140,
+                "question": "కొరింథులో పౌలు ఎవరింట నివసించాడు?",
+                "answer": "అకుల, ప్రిస్కిల్లా",
+                "options": [
+                    "అకుల, ప్రిస్కిల్లా",
+                    "లుదియా",
+                    "కొర్నేలి",
+                    "గమలీయేలు"
+                ]
+            },
+            {
+                "id": 141,
+                "question": "అకుల, ప్రిస్కిల్లా వృత్తి ఏమిటి?",
+                "answer": "గుడారాలు కుట్టేవారు",
+                "options": [
+                    "మత్స్యకారులు",
+                    "గుడారాలు కుట్టేవారు",
+                    "రైతులు",
+                    "యాజకులు"
+                ]
+            },
+            {
+                "id": 142,
+                "question": "ఎఫెసులో అపొల్లో అనే వ్యక్తి ఎలా ఉన్నాడు?",
+                "answer": "వాక్చాతుర్యముగలవాడు, లేఖనాలలో బలమైనవాడు",
+                "options": [
+                    "వాక్చాతుర్యముగలవాడు, లేఖనాలలో బలమైనవాడు",
+                    "సైనికుడు",
+                    "మత్స్యకారుడు",
+                    "రాజు"
+                ]
+            },
+            {
+                "id": 143,
+                "question": "అపొల్లోకు దేవుని మార్గాన్ని మరింత స్పష్టంగా వివరించిన వారు ఎవరు?",
+                "answer": "అకుల, ప్రిస్కిల్లా",
+                "options": [
+                    "పేతురు, యోహాను",
+                    "అకుల, ప్రిస్కిల్లా",
+                    "పౌలు, సీల",
+                    "బర్నబా, మార్కు"
+                ]
+            },
+            {
+                "id": 144,
+                "question": "ఎఫెసులో పౌలు ఎక్కడ బోధించాడు?",
+                "answer": "తురన్ను పాఠశాలలో",
+                "options": [
+                    "తురన్ను పాఠశాలలో",
+                    "దేవాలయంలో మాత్రమే",
+                    "రాజభవనంలో",
+                    "జైలులో"
+                ]
+            },
+            {
+                "id": 145,
+                "question": "ఎఫెసులో పౌలు బోధించిన కాలం ఎంత?",
+                "answer": "2 సంవత్సరాలు",
+                "options": [
+                    "3 నెలలు",
+                    "6 నెలలు",
+                    "2 సంవత్సరాలు",
+                    "5 సంవత్సరాలు"
+                ]
+            },
+            {
+                "id": 146,
+                "question": "ఎఫెసులో యేసు నామమును ఉపయోగించి దయ్యాలను వెళ్లగొట్టడానికి ప్రయత్నించిన వారు ఎవరు?",
+                "answer": "స్కేవా యొక్క ఏడుగురు కుమారులు",
+                "options": [
+                    "స్కేవా యొక్క ఏడుగురు కుమారులు",
+                    "పేతురు కుమారులు",
+                    "పౌలు సోదరులు",
+                    "యూద ప్రధాన యాజకులు"
+                ]
+            },
+            {
+                "id": 147,
+                "question": "ఎఫెసులో జరిగిన సంఘటనల తరువాత అనేకమంది విశ్వాసులు తమ పుస్తకాలను ఏమి చేశారు?",
+                "answer": "కాల్చివేశారు",
+                "options": [
+                    "అమ్మేశారు",
+                    "కాల్చివేశారు",
+                    "దాచుకున్నారు",
+                    "దేవాలయానికి ఇచ్చారు"
+                ]
+            },
+            {
+                "id": 148,
+                "question": "పౌలు మిలేతులో ఎవరిని పిలిపించి వీడ్కోలు చెప్పాడు?",
+                "answer": "ఎఫెసు సంఘ పెద్దలను",
+                "options": [
+                    "రోమా సైనికులను",
+                    "ఎఫెసు సంఘ పెద్దలను",
+                    "సమరయ ప్రజలను",
+                    "యెరూషలేము రాజులను"
+                ]
+            },
+            {
+                "id": 149,
+                "question": "పౌలు మిలేతులో “పొందుటకంటె” ఏమి ధన్యమైనదని చెప్పాడు?",
+                "answer": "ఇచ్చుట",
+                "options": [
+                    "దాచుట",
+                    "ఇచ్చుట",
+                    "తీసుకోవుట",
+                    "ఉపవాసం"
+                ]
+            },
+            {
+                "id": 150,
+                "question": "అపొస్తలుల కార్యములు గ్రంథం చివరలో పౌలు ఎక్కడ ఉన్నాడు?",
+                "answer": "రోములో",
+                "options": [
+                    "యెరూషలేములో",
+                    "రోములో",
+                    "దమస్కులో",
+                    "కైసరయలో"
+                ]
+            }
+        ];
+        try {
+            const savedQuestions = localStorage.getItem("custom_questions");
+            if (savedQuestions) {
+                const parsed = JSON.parse(savedQuestions);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    questions = parsed;
+                }
+            }
+        } catch (e) {
+            console.error("Error loading custom questions:", e);
+        }
+
+        // ==========================================
+        // APPLICATION STATE MANAGEMENT
+        // ==========================================
+        let userState = {
+            name: '',
+            surname: ''
+        };
+
+        let examState = {
+            started: false,
+            completed: false,
+            currentPage: 0, // 0 to 5 (50 questions per page)
+            answers: {},    // key: questionId, value: selectedAnswer
+            bookmarks: new Set(), // questionIds flagged for review
+            visited: new Set(),   // questionIds that have been loaded/seen
+            startTime: null,
+            endTime: null,
+            timerInterval: null,
+            timeLeft: 100 * 60, // 1h 40m = 6000 seconds
+            options: {} // Stores choices per question: { qId: [opt1, opt2, opt3, opt4] }
+        };
+
+        const TOTAL_QUESTIONS = questions.length;
+        const QUESTIONS_PER_PAGE = 50;
+        const TOTAL_PAGES = Math.ceil(TOTAL_QUESTIONS / QUESTIONS_PER_PAGE);
+
+        // Initial load: populate unvisited questions list
+        document.addEventListener("DOMContentLoaded", () => {
+            // Listeners for host settings
+            document.getElementById("host-hours").addEventListener("input", updateWelcomeRules);
+            document.getElementById("host-minutes").addEventListener("input", updateWelcomeRules);
+            updateWelcomeRules();
+
+            // Listeners for host settings
+            document.getElementById("host-hours").addEventListener("input", updateWelcomeRules);
+            document.getElementById("host-minutes").addEventListener("input", updateWelcomeRules);
+            updateWelcomeRules();
+
+            // Warm up: Extract unique answers to make option generation pool
+            const uniqueAnswers = Array.from(new Set(questions.map(q => q.answer)));
+
+            // Generate options for each question once to keep options stable per attempt
+            questions.forEach(q => {
+                if (q.options && q.options.length > 0) {
+                    examState.options[q.id] = [...q.options];
+                } else {
+                    const correctVal = q.answer;
+                    // Filter correct out to pick incorrect pool
+                    const incorrectPool = uniqueAnswers.filter(ans => ans !== correctVal);
+                    const shuffledIncorrect = shuffleArray([...incorrectPool]);
+                    const selectedIncorrect = shuffledIncorrect.slice(0, 3);
+                    const combined = [correctVal, ...selectedIncorrect];
+                    examState.options[q.id] = shuffleArray(combined);
+                }
+            });
+        });
+
+        // Helper functions
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[array[j]]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Toast Notification helper
+        function showToast(message, type = "info") {
+            const toast = document.getElementById("toast");
+            const icon = document.getElementById("toast-icon");
+            const text = document.getElementById("toast-text");
+
+            toast.className = `toast active ${type}`;
+            text.innerText = message;
+
+            if (type === "success") {
+                icon.className = "fa-solid fa-circle-check";
+            } else if (type === "error") {
+                icon.className = "fa-solid fa-circle-exclamation";
+            } else {
+                icon.className = "fa-solid fa-circle-info";
+            }
+
+            setTimeout(() => {
+                toast.classList.remove("active");
+            }, 4000);
+        }
+
+        // ==========================================
+        // EXAM MANAGEMENT - TRANSITIONS
+        // ==========================================
+        function startExam() {
+            const surnameInput = document.getElementById("user-surname").value.trim();
+            const nameInput = document.getElementById("user-name").value.trim();
+
+            if (!surnameInput || !nameInput) {
+                showToast("దయచేసి మీ ఇంటి పేరు మరియు పేరు నమోదు చేయండి.", "error");
+                return;
+            }
+
+            userState.surname = surnameInput;
+            userState.name = nameInput;
+
+            // Update UI elements
+            document.getElementById("user-badge-name").innerText = `${userState.surname} ${userState.name}`;
+            document.getElementById("header-user").style.display = "flex";
+
+            // Initialize state details
+            examState.started = true;
+            examState.startTime = new Date();
+            // Get host settings time
+            const hostHours = parseInt(document.getElementById("host-hours").value);
+            const hostMins = parseInt(document.getElementById("host-minutes").value);
+            if (!isNaN(hostHours) && !isNaN(hostMins)) {
+                examState.timeLeft = (hostHours * 3600) + (hostMins * 60);
+            } else {
+                examState.timeLeft = 100 * 60;
+            }
+            examState.totalTime = examState.timeLeft;
+
+            // Generate palette grid
+            renderPalette();
+
+            // Navigate to first page and track visited questions
+            goToPage(0);
+
+            // Start timer countdown
+            startTimer();
+
+            // Show screen
+            switchScreen("exam-screen");
+            showToast("పరీక్ష విజయవంతంగా ప్రారంభించబడింది. ఆల్ ది బెస్ట్!", "success");
+        }
+
+        function switchScreen(screenId) {
+            document.querySelectorAll(".screen").forEach(scr => {
+                scr.classList.remove("active");
+            });
+            document.getElementById(screenId).classList.add("active");
+            window.scrollTo(0, 0);
+        }
+
+        // ==========================================
+        // QUESTION PALETTE
+        // ==========================================
+        function renderPalette() {
+            const grid = document.getElementById("palette-grid");
+            grid.innerHTML = "";
+
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                const btn = document.createElement("button");
+                btn.innerText = i;
+                btn.id = `palette-btn-${i}`;
+                btn.className = "palette-btn unvisited";
+
+                // Click palette button: navigate directly to that question page and scroll into view
+                btn.onclick = () => {
+                    const pageIndex = Math.floor((i - 1) / QUESTIONS_PER_PAGE);
+                    goToPage(pageIndex);
+
+                    // Smooth scroll to specific question card
+                    setTimeout(() => {
+                        const card = document.getElementById(`q-card-${i}`);
+                        if (card) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            card.classList.add("highlighted");
+                            setTimeout(() => card.classList.remove("highlighted"), 2000);
+                        }
+                    }, 150);
+                };
+
+                grid.appendChild(btn);
+            }
+            updatePaletteUI();
+        }
+
+        function updatePaletteUI() {
+            let answeredCount = 0;
+
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                const btn = document.getElementById(`palette-btn-${i}`);
+                if (!btn) continue;
+
+                let statusClass = "unvisited";
+
+                if (examState.answers[i]) {
+                    statusClass = "answered";
+                    answeredCount++;
+                } else if (examState.bookmarks.has(i)) {
+                    statusClass = "bookmarked";
+                } else if (examState.visited.has(i)) {
+                    statusClass = "visited";
+                }
+
+                btn.className = `palette-btn ${statusClass}`;
+
+                // Highlight active question if it belongs to current page
+                const firstQOnPage = examState.currentPage * QUESTIONS_PER_PAGE + 1;
+                const lastQOnPage = firstQOnPage + QUESTIONS_PER_PAGE - 1;
+                if (i >= firstQOnPage && i <= lastQOnPage) {
+                    btn.classList.add("current");
+                } else {
+                    btn.classList.remove("current");
+                }
+            }
+
+            // Update palette counts
+            document.getElementById("palette-progress").innerText = `పూర్తయింది: ${answeredCount}/${TOTAL_QUESTIONS}`;
+        }
+
+        // ==========================================
+        // RENDER QUESTIONS ON PAGE
+        // ==========================================
+        function goToPage(pageIndex) {
+            if (pageIndex < 0 || pageIndex >= TOTAL_PAGES) return;
+            examState.currentPage = pageIndex;
+
+            const container = document.getElementById("questions-container");
+            container.innerHTML = "";
+
+            const startIdx = pageIndex * QUESTIONS_PER_PAGE;
+            const endIdx = startIdx + QUESTIONS_PER_PAGE;
+            const pageQuestions = questions.slice(startIdx, endIdx);
+
+            pageQuestions.forEach(q => {
+                // Mark question as visited
+                examState.visited.add(q.id);
+
+                const card = document.createElement("div");
+                card.id = `q-card-${q.id}`;
+                card.className = "question-card";
+
+                const qHeader = document.createElement("div");
+                qHeader.className = "q-header";
+
+                const qTitle = document.createElement("div");
+                qTitle.className = "q-text";
+                qTitle.innerHTML = `<span class="q-number">${q.id}</span> ${q.question}`;
+
+                const bookmarkBtn = document.createElement("button");
+                bookmarkBtn.className = `bookmark-btn ${examState.bookmarks.has(q.id) ? 'active' : ''}`;
+                bookmarkBtn.title = "తర్వాత పరిశీలన కోసం గుర్తించు";
+                bookmarkBtn.innerHTML = examState.bookmarks.has(q.id) ?
+                    '<i class="fa-solid fa-bookmark"></i>' :
+                    '<i class="fa-regular fa-bookmark"></i>';
+
+                bookmarkBtn.onclick = () => toggleBookmark(q.id, bookmarkBtn);
+
+                qHeader.appendChild(qTitle);
+                qHeader.appendChild(bookmarkBtn);
+                card.appendChild(qHeader);
+
+                // Options Grid
+                const optionsGrid = document.createElement("div");
+                optionsGrid.className = "options-grid";
+
+                const choices = examState.options[q.id];
+                choices.forEach((choice, cIdx) => {
+                    const isSelected = examState.answers[q.id] === choice;
+
+                    const label = document.createElement("label");
+                    label.className = `option-label ${isSelected ? 'selected' : ''}`;
+
+                    const radio = document.createElement("input");
+                    radio.type = "radio";
+                    radio.name = `question-${q.id}`;
+                    radio.value = choice;
+                    radio.checked = isSelected;
+
+                    radio.onchange = () => selectOption(q.id, choice);
+
+                    const bullet = document.createElement("div");
+                    bullet.className = "option-bullet";
+                    bullet.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                    const optionLetters = ["A", "B", "C", "D"];
+                    const prefix = `${optionLetters[cIdx]}) `;
+                    const text = document.createElement("span");
+                    text.className = "option-text";
+                    text.innerText = prefix + choice;
+
+                    label.appendChild(radio);
+                    label.appendChild(bullet);
+                    label.appendChild(text);
+                    optionsGrid.appendChild(label);
+                });
+
+                card.appendChild(optionsGrid);
+                container.appendChild(card);
+            });
+
+            // Update Navigation Buttons & indicators
+            document.getElementById("page-indicator").innerText = `పేజీ ${pageIndex + 1} / ${TOTAL_PAGES}`;
+            document.getElementById("prev-btn").disabled = pageIndex === 0;
+
+            // Handle next vs submit buttons depending on page index
+            const isLastPage = pageIndex === TOTAL_PAGES - 1;
+            if (isLastPage) {
+                document.getElementById("next-btn").style.display = "none";
+                document.getElementById("last-page-submit-btn").style.display = "inline-flex";
+            } else {
+                document.getElementById("next-btn").style.display = "inline-flex";
+                document.getElementById("last-page-submit-btn").style.display = "none";
+            }
+
+            updatePaletteUI();
+            window.scrollTo(0, 0);
+        }
+
+        function changePage(direction) {
+            goToPage(examState.currentPage + direction);
+        }
+
+        function selectOption(qId, selectedText) {
+            examState.answers[qId] = selectedText;
+
+            // Re-render only options select borders inside question card for quick performance
+            const card = document.getElementById(`q-card-${qId}`);
+            if (card) {
+                card.querySelectorAll(".option-label").forEach(lbl => {
+                    const radio = lbl.querySelector("input[type='radio']");
+                    if (radio && radio.value === selectedText) {
+                        lbl.classList.add("selected");
+                    } else {
+                        lbl.classList.remove("selected");
+                    }
+                });
+            }
+            updatePaletteUI();
+        }
+
+        function toggleBookmark(qId, btnElement) {
+            if (examState.bookmarks.has(qId)) {
+                examState.bookmarks.delete(qId);
+                btnElement.classList.remove("active");
+                btnElement.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+            } else {
+                examState.bookmarks.add(qId);
+                btnElement.classList.add("active");
+                btnElement.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+            }
+            updatePaletteUI();
+        }
+
+        // ==========================================
+        // TIMER ENGINE
+        // ==========================================
+        function startTimer() {
+            if (examState.timerInterval) clearInterval(examState.timerInterval);
+
+            const totalTime = examState.totalTime || 30 * 60;
+            updateTimerUI(totalTime);
+
+            examState.timerInterval = setInterval(() => {
+                examState.timeLeft--;
+
+                if (examState.timeLeft <= 0) {
+                    clearInterval(examState.timerInterval);
+                    updateTimerUI(0);
+                    showToast("సమయం ముగిసింది! మీ పరీక్ష సబ్మిట్ చేయబడుతోంది...", "error");
+                    setTimeout(() => submitExam(true), 2000); // Auto submit on timeout
+                } else {
+                    updateTimerUI(totalTime);
+                }
+            }, 1000);
+        }
+
+        function updateTimerUI(totalTime) {
+            const hours = Math.floor(examState.timeLeft / 3600);
+            const minutes = Math.floor((examState.timeLeft % 3600) / 60);
+            const seconds = examState.timeLeft % 60;
+
+            // Pad numbers
+            document.getElementById("time-hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("time-minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("time-seconds").innerText = String(seconds).padStart(2, '0');
+
+            // Visual progress bar percentage
+            const percent = (examState.timeLeft / totalTime) * 100;
+            const progressFill = document.getElementById("timer-progress");
+            progressFill.style.width = `${percent}%`;
+
+            const display = document.getElementById("timer-display");
+            if (examState.timeLeft < 5 * 60) {
+                // Less than 5 mins: Danger Red
+                display.className = "timer-display danger";
+                progressFill.style.backgroundColor = "var(--danger)";
+            } else if (examState.timeLeft < 15 * 60) {
+                // Less than 15 mins: Warning Orange
+                display.className = "timer-display warning";
+                progressFill.style.backgroundColor = "var(--warning)";
+            } else {
+                display.className = "timer-display";
+                progressFill.style.backgroundColor = ""; // Default gradient
+            }
+        }
+
+        // ==========================================
+        // SUBMISSION & CONFIRMATION
+        // ==========================================
+        function openSubmitModal() {
+            // Calculate answered questions
+            const answeredCount = Object.keys(examState.answers).length;
+            document.getElementById("modal-answered-count").innerText = answeredCount;
+            document.getElementById("modal-bookmark-count").innerText = examState.bookmarks.size;
+
+            document.getElementById("submit-modal").classList.add("active");
+        }
+
+        function closeSubmitModal() {
+            document.getElementById("submit-modal").classList.remove("active");
+        }
+
+        // Submit Exam
+        function submitExam(isAutoSubmit = false) {
+            if (!isAutoSubmit) {
+                closeSubmitModal();
+            }
+
+            clearInterval(examState.timerInterval);
+            examState.completed = true;
+            examState.endTime = new Date();
+
+            // Calculations
+            let score = 0;
+            questions.forEach(q => {
+                if (examState.answers[q.id] === q.answer) {
+                    score++;
+                }
+            });
+
+            const percentage = Math.round((score / TOTAL_QUESTIONS) * 100);
+            const timeTakenSecs = (examState.endTime - examState.startTime) / 1000;
+            const formattedTimeTaken = formatTime(timeTakenSecs);
+
+            // Save user result payload
+            const examDate = new Date().toLocaleDateString('te-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+            const examTime = new Date().toLocaleTimeString('te-IN', { hour: '2-digit', minute: '2-digit' });
+
+            const payload = {
+                name: userState.name,
+                surname: userState.surname,
+                fullName: `${userState.surname} ${userState.name}`,
+                marks: score, // Added marks field explicitly
+                score: score,
+                total: TOTAL_QUESTIONS,
+                percentage: percentage,
+                date: examDate,
+                time: examTime,
+                timeTaken: formattedTimeTaken,
+                answers: examState.answers
+            };
+
+            // RENDER CERTIFICATE & RESULTS SCREEN DETAILS
+            document.getElementById("result-score-num").innerText = score;
+            document.getElementById("res-full-name").innerText = payload.fullName;
+            document.getElementById("res-date-time").innerText = `${payload.date} | ${payload.time}`;
+            document.getElementById("res-time-taken").innerText = payload.timeTaken;
+
+            // Update print layouts
+            document.getElementById("cert-name").innerText = payload.fullName;
+            document.getElementById("cert-date").innerText = payload.date;
+            document.getElementById("cert-score").innerText = score;
+            document.getElementById("cert-percent").innerText = percentage;
+            document.getElementById("cert-time-taken").innerText = payload.timeTaken;
+
+            // Adjust percentage circle color
+            const scoreCircle = document.getElementById("score-circle-container");
+            scoreCircle.style.setProperty('--percentage', percentage);
+            if (percentage >= 80) {
+                scoreCircle.style.setProperty('background', `conic-gradient(var(--success) calc(${percentage} * 1%), rgba(255,255,255,0.05) 0)`);
+                document.getElementById("result-rating").innerText = "అద్భుతం! (Excellent Achievement)";
+                document.getElementById("result-rating").style.color = "var(--success)";
+            } else if (percentage >= 50) {
+                scoreCircle.style.setProperty('background', `conic-gradient(var(--accent) calc(${percentage} * 1%), rgba(255,255,255,0.05) 0)`);
+                document.getElementById("result-rating").innerText = "చాలా మంచి ప్రయత్నం! (Good Attempt)";
+                document.getElementById("result-rating").style.color = "var(--accent)";
+            } else {
+                scoreCircle.style.setProperty('background', `conic-gradient(var(--danger) calc(${percentage} * 1%), rgba(255,255,255,0.05) 0)`);
+                document.getElementById("result-rating").innerText = "మళ్ళీ ప్రయత్నించండి. (Keep Studying & Try Again)";
+                document.getElementById("result-rating").style.color = "var(--danger)";
+            }
+
+            // Hide user badge in header
+            document.getElementById("header-user").style.display = "none";
+
+            // ----------------------------------------
+            // EMAIL NOTIFICATION ENGINE (WEB3FORMS)
+            // ----------------------------------------
+            const firebaseBadge = document.getElementById("res-firebase-status");
+            firebaseBadge.innerText = "ఈమెయిల్ పంపుతోంది...";
+            firebaseBadge.className = "detail-value text-accent";
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: "fc8c71c7-6524-4d40-b186-828acf4d4aae",
+                    subject: "New Exam Submission from " + payload.fullName,
+                    from_name: "Exam Portal",
+                    Name: payload.fullName,
+                    Marks: payload.marks + " out of " + payload.total,
+                    Percentage: payload.percentage + "%",
+                    Time_Taken: payload.timeTaken,
+                    Date: payload.date + " " + payload.time
+                })
+            })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        firebaseBadge.innerText = "ఈమెయిల్ పంపబడింది";
+                        firebaseBadge.style.color = "var(--success)";
+                        showToast("మీ వివరాలు హోస్ట్‌కి ఈమెయిల్ చేయబడ్డాయి!", "success");
+                    } else {
+                        console.log(response);
+                        firebaseBadge.innerText = "ఈమెయిల్ విఫలమైంది";
+                        firebaseBadge.style.color = "var(--danger)";
+                        showToast("దయచేసి సరైన Web3Forms Access Key ని పెట్టండి.", "error");
+                    }
+                })
+                .catch(error => {
+                    console.error("Email Error:", error);
+                    firebaseBadge.innerText = "ఈమెయిల్ విఫలమైంది";
+                    firebaseBadge.style.color = "var(--danger)";
+                    showToast("ఈమెయిల్ పంపడంలో లోపం ఏర్పడింది.", "error");
+                });
+
+            saveToLocal(payload);
+
+            // Generate results breakdown items
+            renderReviewList();
+
+            // Show result
+            switchScreen("results-screen");
+        }
+
+        function saveToLocal(data) {
+            try {
+                const localLogs = JSON.parse(localStorage.getItem("bible_exam_results") || "[]");
+                localLogs.push({ ...data, id: Date.now() });
+                localStorage.setItem("bible_exam_results", JSON.stringify(localLogs));
+            } catch (e) {
+                console.error("Local storage error:", e);
+            }
+        }
+
+        function formatTime(totalSeconds) {
+            const hrs = Math.floor(totalSeconds / 3600);
+            const mins = Math.floor((totalSeconds % 3600) / 60);
+            const secs = Math.floor(totalSeconds % 60);
+
+            let timeStr = "";
+            if (hrs > 0) timeStr += `${hrs} గంటల `;
+            if (mins > 0 || hrs > 0) timeStr += `${mins} నిమిషాల `;
+            timeStr += `${secs} సెకండ్లు`;
+            return timeStr;
+        }
+
+        // ==========================================
+        // RESULTS ANSWER REVIEW FILTERING
+        // ==========================================
+        function renderReviewList() {
+            const reviewContainer = document.getElementById("review-list");
+            reviewContainer.innerHTML = "";
+
+            questions.forEach(q => {
+                const userAns = examState.answers[q.id] || "సమాధానం ఇవ్వలేదు (Not Answered)";
+                const correctAns = q.answer;
+                const isCorrect = userAns === correctAns;
+
+                const card = document.createElement("div");
+                card.id = `review-card-${q.id}`;
+                card.className = `review-card ${isCorrect ? 'correct-item' : 'incorrect-item'}`;
+                card.dataset.correct = isCorrect;
+
+                const rHeader = document.createElement("div");
+                rHeader.className = "review-q-header";
+
+                const rText = document.createElement("div");
+                rText.className = "review-q-text";
+                rText.innerHTML = `<strong>${q.id})</strong> ${q.question}`;
+
+                const statusBadge = document.createElement("span");
+                statusBadge.className = `review-status-badge ${isCorrect ? 'correct' : 'incorrect'}`;
+                statusBadge.innerText = isCorrect ? "సరైనది (Correct)" : "తప్పు (Incorrect)";
+
+                rHeader.appendChild(rText);
+                rHeader.appendChild(statusBadge);
+                card.appendChild(rHeader);
+
+                // Compare answer blocks
+                const compGrid = document.createElement("div");
+                compGrid.className = "answer-comp-grid";
+
+                const userBlock = document.createElement("div");
+                userBlock.className = "ans-block";
+                userBlock.innerHTML = `
+          <span class="ans-label">మీ సమాధానం</span>
+          <span class="ans-text ${isCorrect ? 'success' : 'danger'}">${userAns}</span>
+        `;
+
+                const correctBlock = document.createElement("div");
+                correctBlock.className = "ans-block";
+                correctBlock.innerHTML = `
+          <span class="ans-label">సరైన సమాధానం</span>
+          <span class="ans-text success">${correctAns}</span>
+        `;
+
+                compGrid.appendChild(userBlock);
+                compGrid.appendChild(correctBlock);
+                card.appendChild(compGrid);
+
+                reviewContainer.appendChild(card);
+            });
+        }
+
+        function filterReview(filterType) {
+            // Toggle button states
+            document.querySelectorAll(".review-filter .filter-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+            document.getElementById(`filter-${filterType}`).classList.add("active");
+
+            // Show/Hide review items
+            document.querySelectorAll(".review-list .review-card").forEach(card => {
+                const isCorrect = card.dataset.correct === "true";
+                if (filterType === "all") {
+                    card.style.display = "flex";
+                } else if (filterType === "correct") {
+                    card.style.display = isCorrect ? "flex" : "none";
+                } else if (filterType === "incorrect") {
+                    card.style.display = !isCorrect ? "flex" : "none";
+                }
+            });
+        }
+
+        // ==========================================
+        // RESTART SYSTEM
+        // ==========================================
+        function restartExam() {
+            // Reset inputs
+            document.getElementById("user-surname").value = "";
+            document.getElementById("user-name").value = "";
+
+            // Reset host settings password state
+            const pwdInput = document.getElementById("host-password");
+            if (pwdInput) pwdInput.value = "";
+            const pwdGroup = document.getElementById("host-password-group");
+            if (pwdGroup) pwdGroup.style.display = "block";
+            const timeInputs = document.getElementById("host-time-inputs");
+            if (timeInputs) timeInputs.style.display = "none";
+            document.getElementById("header-user").style.display = "none";
+
+            // Reset state variables
+            examState.completed = false;
+            examState.started = false;
+            examState.currentPage = 0;
+            examState.answers = {};
+            examState.bookmarks.clear();
+            examState.visited.clear();
+            examState.startTime = null;
+            examState.endTime = null;
+            const hostHours = parseInt(document.getElementById("host-hours").value);
+            const hostMins = parseInt(document.getElementById("host-minutes").value);
+            if (!isNaN(hostHours) && !isNaN(hostMins)) {
+                examState.timeLeft = (hostHours * 3600) + (hostMins * 60);
+            } else {
+                examState.timeLeft = 100 * 60;
+            }
+            examState.totalTime = examState.timeLeft;
+
+            if (examState.timerInterval) {
+                clearInterval(examState.timerInterval);
+                examState.timerInterval = null;
+            }
+
+            // Regenerate randomized incorrect options for a completely fresh attempt
+            const uniqueAnswers = Array.from(new Set(questions.map(q => q.answer)));
+            questions.forEach(q => {
+                if (q.options && q.options.length > 0) {
+                    examState.options[q.id] = [...q.options];
+                } else {
+                    const correctVal = q.answer;
+                    const incorrectPool = uniqueAnswers.filter(ans => ans !== correctVal);
+                    const shuffledIncorrect = shuffleArray([...incorrectPool]);
+                    const selectedIncorrect = shuffledIncorrect.slice(0, 3);
+                    const combined = [correctVal, ...selectedIncorrect];
+                    examState.options[q.id] = shuffleArray(combined);
+                }
+            });
+
+            // Reset review filters
+            document.querySelectorAll(".review-filter .filter-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+            document.getElementById("filter-all").classList.add("active");
+
+            // Return to register screen
+            switchScreen("welcome-screen");
+        }
+
+        function toggleHostSettings() {
+            const content = document.getElementById("host-settings-content");
+            const icon = document.getElementById("host-settings-icon");
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            } else {
+                content.style.display = "none";
+                icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+            }
+        }
+
+        function updateWelcomeRules() {
+            const h = parseInt(document.getElementById("host-hours").value) || 0;
+            const m = parseInt(document.getElementById("host-minutes").value) || 0;
+            const rules = document.querySelectorAll(".rules-list li strong");
+            if (rules.length >= 2) {
+                rules[1].innerText = `${h} గంటల ${m} నిమిషాలు (${h}h:${m}m)`;
+            }
+        }
+
+        function checkHostPassword() {
+            const pwd = document.getElementById("host-password").value;
+            const timeInputs = document.getElementById("host-time-inputs");
+            if (pwd === "paul1810") {
+                timeInputs.style.display = "block";
+                document.getElementById("host-password-group").style.display = "none";
+                document.getElementById("host-questions-json").value = JSON.stringify(questions, null, 2);
+                showToast("పాస్‌వర్డ్ సరిఅయినది. నిర్వహణ అనుమతి ఇవ్వబడింది.", "success");
+                loadHostLogs();
+            }
+        }
+
+        function saveHostQuestions() {
+            try {
+                const jsonText = document.getElementById("host-questions-json").value;
+                const newQuestions = JSON.parse(jsonText);
+                if (Array.isArray(newQuestions) && newQuestions.length > 0) {
+                    questions = newQuestions;
+                    localStorage.setItem("custom_questions", JSON.stringify(newQuestions));
+                    showToast("ప్రశ్నలు విజయవంతంగా భద్రపరచబడ్డాయి! (" + questions.length + " ప్రశ్నలు)", "success");
+                } else {
+                    showToast("సరియైన JSON ఫార్మాట్ లో ప్రశ్నలను ఇవ్వండి.", "error");
+                }
+            } catch (e) {
+                showToast("JSON పార్సింగ్ లో లోపం: " + e.message, "error");
+            }
+        }
+
+        function loadHostLogs() {
+            const tbody = document.getElementById("host-logs-tbody");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+
+            try {
+                const logs = JSON.parse(localStorage.getItem("bible_exam_results") || "[]");
+                if (logs.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 1rem; color: var(--text-muted);">ఎటువంటి ఫలితాలు లేవు (No records found)</td></tr>`;
+                    return;
+                }
+
+                // Show latest first
+                logs.reverse().forEach(log => {
+                    const tr = document.createElement("tr");
+                    tr.style.borderBottom = "1px solid rgba(255,255,255,0.05)";
+
+                    const nameTd = document.createElement("td");
+                    nameTd.style.padding = "0.4rem";
+                    nameTd.innerText = log.fullName || `${log.surname} ${log.name}`;
+
+                    const scoreTd = document.createElement("td");
+                    scoreTd.style.padding = "0.4rem";
+                    scoreTd.style.textAlign = "center";
+                    scoreTd.innerText = `${log.score} / ${log.total || 100}`;
+
+                    const timeTakenTd = document.createElement("td");
+                    timeTakenTd.style.padding = "0.4rem";
+                    timeTakenTd.style.textAlign = "center";
+                    timeTakenTd.innerText = log.timeTaken || '-';
+
+                    const dateTd = document.createElement("td");
+                    dateTd.style.padding = "0.4rem";
+                    dateTd.style.textAlign = "right";
+                    dateTd.innerText = `${log.date} ${log.time || ''}`;
+
+                    tr.appendChild(nameTd);
+                    tr.appendChild(scoreTd);
+                    tr.appendChild(timeTakenTd);
+                    tr.appendChild(dateTd);
+                    tbody.appendChild(tr);
+                });
+            } catch (e) {
+                console.error("Error loading host logs:", e);
+            }
+        }
+
+        function clearHostLogs() {
+            if (confirm("నిజంగా రికార్డులను తొలగించాలనుకుంటున్నారా? (Are you sure you want to clear all history?)")) {
+                localStorage.removeItem("bible_exam_results");
+                loadHostLogs();
+                showToast("రికార్డులు తొలగించబడ్డాయి.", "success");
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedName = localStorage.getItem("userName");
+            const savedSurname = localStorage.getItem("userSurname");
+            if (savedName && savedSurname) {
+                document.getElementById("user-name").value = savedName;
+                document.getElementById("user-surname").value = savedSurname;
+                startExam();
+            }
+        });
+    </script>
+</body>
+
+</html>
